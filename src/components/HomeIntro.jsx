@@ -37,7 +37,7 @@ const IntroMessage = styled.div`
   position: absolute;
   text-align: center;
   top: 53%;
-  font-size: 25px;
+  font-size: 20px;
   font-weight: 500;
   animation: ${homeIntroAnimationTransition} ${homeIntroSlideInIntroText};
 `;

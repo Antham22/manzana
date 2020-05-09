@@ -1,4 +1,16 @@
-import {keyframes} from 'styled-components'
+import { keyframes } from 'styled-components'
+
+// colors
+export const BLACK = "#000";
+export const WHITE = '#fff';
+
+// Navbar
+export const NAV_HEIGHT = "100px";
+export const NAV_LOGO_WIDTH = "40px";
+
+// Pages
+export const PAGE_LOGO_WIDTH = "295px";
+export const PAGE_SIDEBAR_WIDTH = "100px";
 
 // animations
 export const homeIntroAnimationTransition = '1.6s ease-in 0s 1';
@@ -11,7 +23,7 @@ export const homeIntroExpandFromTop = keyframes`
 }
 
 100% {
-    top: 107px;
+    top: calc(${NAV_HEIGHT} + 7px);
     margin: 0 100px ;
 }`
 ;
@@ -51,15 +63,3 @@ export const homeIntroSlideInIntroText = keyframes`
         top: 53%
     }
 `;
-
-// colors
-export const BLACK = "#000";
-export const WHITE = '#fff';
-
-// Navbar
-export const NAV_HEIGHT = "100px";
-export const NAV_LOGO_WIDTH = "40px";
-
-// Pages
-export const PAGE_LOGO_WIDTH = "295px";
-export const PAGE_SIDEBAR_WIDTH = "100px";
