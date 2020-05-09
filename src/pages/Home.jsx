@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import { HomeIntro } from '../components';
+import { HomeIntro, HomeMain, Navbar } from '../components';
 
 const Home = () => {
-  return <HomeIntro />;
+  const [isIntro, setIsIntro] = useState(false);
+
+  return isIntro ? (
+    <HomeIntro />
+  ) : (
+    <>
+      <Navbar />
+      <HomeMain />
+    </>
+  );
 };
 
 export default Home;

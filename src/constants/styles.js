@@ -2,11 +2,13 @@ import { keyframes } from 'styled-components'
 
 // colors
 export const BLACK = "#000";
+export const LIGHT = '#707070';
 export const WHITE = '#fff';
+export const LIGHT_BLUE = '#5AC8FA';
 
 // Navbar
 export const NAV_HEIGHT = "100px";
-export const NAV_LOGO_WIDTH = "40px";
+export const NAV_BRAND_WIDTH = "40px";
 
 // Pages
 export const PAGE_LOGO_WIDTH = "295px";

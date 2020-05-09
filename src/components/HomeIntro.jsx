@@ -8,7 +8,7 @@ import 'odometer/themes/odometer-theme-minimal.css';
 import {
   BLACK,
   NAV_HEIGHT,
-  NAV_LOGO_WIDTH,
+  NAV_BRAND_WIDTH,
   PAGE_LOGO_WIDTH,
   PAGE_SIDEBAR_WIDTH,
   WHITE,
@@ -80,7 +80,7 @@ const HomeIntro = () => {
   return (
     <Wrapper>
       <IntroNav>
-        <AppleLogo color={WHITE} width={NAV_LOGO_WIDTH} />
+        <AppleLogo color={WHITE} width={NAV_BRAND_WIDTH} />
       </IntroNav>
       <IntroWrapper>
         <IntroLogoWrapper>
