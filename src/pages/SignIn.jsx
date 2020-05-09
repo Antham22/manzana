@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import { Card, FormInput, FormLabel, PrimaryButton } from '../components';
 
-import { BACKGROUND_BLUE, BLACK, LIGHT_BLUE, WHITE } from '../constants/styles';
+import { BACKGROUND_BLUE, LIGHT_BLUE } from '../constants/styles';
 
 const Wrapper = styled.section`
   display: flex;

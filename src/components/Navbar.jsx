@@ -104,8 +104,13 @@ const Navbar = ({ isIntro, handleToggleHome }) => {
 };
 
 Navbar.propTypes = {
-  isIntro: bool.isRequired,
-  handleToggleHome: func.isRequired,
+  isIntro: bool,
+  handleToggleHome: func,
+};
+
+Navbar.defaultProps = {
+  isIntro: false,
+  handleToggleHome: null,
 };
 
 export default Navbar;

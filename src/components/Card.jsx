@@ -1,5 +1,5 @@
 import React from 'react';
-import { element, string } from 'prop-types';
+import { element } from 'prop-types';
 import styled from 'styled-components';
 
 import { WHITE } from '../constants/styles';

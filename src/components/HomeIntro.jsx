@@ -14,11 +14,9 @@ import {
   WHITE,
   easeInDefault,
   fadeIn,
-  fadeOut,
   homeIntroTextPosition,
   homeIntroSlideInContainer,
   scaleUp,
-  slideDown,
 } from '../constants/styles';
 
 const IntroCounter = styled.div`
@@ -66,7 +64,7 @@ const HomeIntro = ({ handleToggleHome }) => {
 
   useEffect(() => {
     setCounter(2020);
-  });
+  }, [setCounter]);
 
   return (
     <Wrapper onClick={handleToggleHome}>

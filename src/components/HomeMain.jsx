@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -88,7 +88,7 @@ const HomeMain = () => {
         <ProductsLinkList>
           {NAV_LINKS.map((link) => (
             <Link key={link.id} to={link.path}>
-              <img src={`/images/${link.id}-icon.png`} />
+              <img src={`/images/${link.id}-icon.png`} alt={`${link.id} icon`} />
             </Link>
           ))}
         </ProductsLinkList>

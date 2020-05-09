@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import { Home, SignIn, SignUp } from '../pages';
+import { Home, IPhone, SignIn, SignUp } from '../pages';
 
 const App = () => {
   return (
@@ -11,6 +11,7 @@ const App = () => {
           <Route path="/" component={Home} exact />
           <Route path="/sign-in" component={SignIn} exact />
           <Route path="/sign-up" component={SignUp} exact />
+          <Route path="/iphone" component={IPhone} exact />
         </Switch>
       </Router>
     </main>
