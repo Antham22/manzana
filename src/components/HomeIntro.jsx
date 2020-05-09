@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { func } from 'prop-types';
 import styled from 'styled-components';
 
 import { AppleLogo } from './shared';
@@ -84,6 +85,10 @@ const HomeIntro = ({ handleToggleHome }) => {
       </IntroCounter>
     </Wrapper>
   );
+};
+
+HomeIntro.propTypes = {
+  handleToggleHome: func.isRequired,
 };
 
 export default HomeIntro;

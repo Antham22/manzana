@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { bool, func } from 'prop-types';
 import styled from 'styled-components';
 
 import AppleLogo from './shared/AppleLogo';
@@ -100,6 +101,11 @@ const Navbar = ({ isIntro, handleToggleHome }) => {
       </Nav>
     </>
   );
+};
+
+Navbar.propTypes = {
+  isIntro: bool.isRequired,
+  handleToggleHome: func.isRequired,
 };
 
 export default Navbar;

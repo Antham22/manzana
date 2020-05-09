@@ -1,4 +1,5 @@
 import React from 'react';
+import { string } from 'prop-types';
 import styled from 'styled-components';
 
 const Logo = styled.svg`
@@ -25,6 +26,11 @@ const AppleLogo = ({ color, width }) => {
       </Logo>
     </Wrapper>
   );
+};
+
+AppleLogo.propTypes = {
+  color: string.isRequired,
+  width: string.isRequired,
 };
 
 export default AppleLogo;

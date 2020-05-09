@@ -51,7 +51,7 @@ const ProductsLink = styled(Link)`
   bottom: 10%;
   color: ${LIGHT_BLUE};
   font-weight: 500;
-  animation: ${slideUp} ${easeInSec};
+  animation: ${slideUp} ${easeInSec}, ${fadeIn} ${easeInSec};
 `;
 
 const ProductsLinkList = styled.ul`
