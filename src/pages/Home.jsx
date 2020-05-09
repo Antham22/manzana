@@ -3,14 +3,14 @@ import React, { useState } from 'react';
 import { HomeIntro, HomeMain, Navbar } from '../components';
 
 const Home = () => {
-  const [isIntro, setIsIntro] = useState(false);
+  const [isIntro, setIsIntro] = useState(true);
 
-  return isIntro ? (
-    <HomeIntro />
-  ) : (
+  const handleToggleHome = () => setIsIntro(!isIntro);
+
+  return (
     <>
-      <Navbar />
-      <HomeMain />
+      <Navbar isIntro={isIntro} handleToggleHome={handleToggleHome} />
+      {isIntro ? <HomeIntro isIntro={isIntro} handleToggleHome={handleToggleHome} /> : <HomeMain />}
     </>
   );
 };

@@ -3,7 +3,16 @@ import { Link, NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 import AppleLogo from './shared/AppleLogo';
-import { BLACK, LIGHT, LIGHT_BLUE, NAV_BRAND_WIDTH, WHITE } from '../constants/styles';
+import {
+  BLACK,
+  LIGHT,
+  LIGHT_BLUE,
+  NAV_BRAND_WIDTH,
+  WHITE,
+  NAV_HEIGHT,
+  slideDown,
+  easeInDefault,
+} from '../constants/styles';
 import { NAV_LINKS } from '../constants/common';
 
 const Nav = styled.nav`
@@ -44,31 +53,52 @@ const NotifyButton = styled.button`
   font-size: inherit;
 `;
 
-const Navbar = () => {
+const IntroNav = styled.nav`
+  position: fixed;
+  display: flex;
+  top: 0;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  height: ${NAV_HEIGHT};
+  background-color: ${BLACK};
+  animation: ${slideDown} ${easeInDefault};
+`;
+
+const Navbar = ({ isIntro, handleToggleHome }) => {
+  if (isIntro) {
+    return (
+      <IntroNav isIntro={isIntro}>
+        <AppleLogo color={WHITE} width={NAV_BRAND_WIDTH} />
+      </IntroNav>
+    );
+  }
   return (
-    <Nav>
-      <NavBrand to="/">
-        <AppleLogo color="#fff" width={NAV_BRAND_WIDTH} />
-      </NavBrand>
-      <NavList>
-        {NAV_LINKS.map((link) => (
+    <>
+      <Nav>
+        <NavBrand to="/" onClick={handleToggleHome}>
+          <AppleLogo color="#fff" width={NAV_BRAND_WIDTH} />
+        </NavBrand>
+        <NavList>
+          {NAV_LINKS.map((link) => (
+            <NavListItem key={link.id}>
+              <NavLink
+                activeStyle={{
+                  fontWeight: 500,
+                  color: BLACK,
+                }}
+                to={link.path}
+              >
+                {link.name}
+              </NavLink>
+            </NavListItem>
+          ))}
           <NavListItem>
-            <NavLink
-              activeStyle={{
-                fontWeight: 500,
-                color: BLACK,
-              }}
-              to={link.path}
-            >
-              {link.name}
-            </NavLink>
+            <NotifyButton>Notify me</NotifyButton>
           </NavListItem>
-        ))}
-        <NavListItem>
-          <NotifyButton>Notify me</NotifyButton>
-        </NavListItem>
-      </NavList>
-    </Nav>
+        </NavList>
+      </Nav>
+    </>
   );
 };
 
