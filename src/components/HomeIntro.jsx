@@ -58,7 +58,6 @@ const IntroWrapper = styled.div`
 
 const Wrapper = styled.section`
   height: 100%;
-  overflow: hidden;
   cursor: pointer;
 `;
 
