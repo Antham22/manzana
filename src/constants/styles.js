@@ -12,9 +12,11 @@ export const NAV_HEIGHT = "100px";
 export const NAV_BRAND_WIDTH = "40px";
 
 // Pages and misc
+export const BACKGROUND_BLUE = "transparent linear-gradient(180deg, #5ac8fa -25%, #ffffff00 76%) 0% 0% no-repeat padding-box"
+export const BACKGROUND_GREY = "transparent linear-gradient(90deg, #f2f2f2 0%, #ffffff00 100%) 0% 0% no-repeat padding-box";
+export const CONTAINER_HEIGHT = `(${NAV_HEIGHT} - 7px)`;
 export const PAGE_LOGO_WIDTH = "295px";
 export const PAGE_SIDEBAR_WIDTH = "100px";
-export const CONTAINER_HEIGHT = `(${NAV_HEIGHT} - 7px)`;
 
 // animations
 export const easeInDefault = '1.6s ease-in 0s 1';

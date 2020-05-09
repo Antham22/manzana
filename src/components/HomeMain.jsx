@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { AppleLogo } from './shared';
+import AppleLogo from './AppleLogo';
 
 import {
+  BACKGROUND_GREY,
   CONTAINER_HEIGHT,
   LIGHT_BLUE,
   GREY,
@@ -67,8 +68,7 @@ const ProductsLinkList = styled.ul`
 `;
 
 const Wrapper = styled.section`
-  background: transparent linear-gradient(90deg, #f2f2f2 0%, #ffffff00 100%) 0% 0% no-repeat
-    padding-box;
+  background: ${BACKGROUND_GREY};
   height: 100%;
   padding-top: 7px;
   padding-right: calc(100px);

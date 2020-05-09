@@ -2,15 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { func } from 'prop-types';
 import styled from 'styled-components';
 
-import { AppleLogo } from './shared';
+import AppleLogo from './AppleLogo';
 import Odometer from 'react-odometerjs';
 import 'odometer/themes/odometer-theme-minimal.css';
 
 import {
-  BLACK,
+  BACKGROUND_BLUE,
   CONTAINER_HEIGHT,
-  NAV_HEIGHT,
-  NAV_BRAND_WIDTH,
   PAGE_LOGO_WIDTH,
   PAGE_SIDEBAR_WIDTH,
   WHITE,
@@ -55,8 +53,7 @@ const IntroWrapper = styled.div`
   align-items: center;
   margin: 107px ${PAGE_SIDEBAR_WIDTH} 0;
   animation: ${homeIntroSlideInContainer} ${easeInDefault};
-  background: transparent linear-gradient(180deg, #5ac8fa -25%, #ffffff00 76%) 0% 0% no-repeat
-    padding-box;
+  background: ${BACKGROUND_BLUE};
 `;
 
 const Wrapper = styled.section`

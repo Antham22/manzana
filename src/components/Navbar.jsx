@@ -3,7 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { bool, func } from 'prop-types';
 import styled from 'styled-components';
 
-import AppleLogo from './shared/AppleLogo';
+import AppleLogo from './AppleLogo';
 import {
   BLACK,
   LIGHT,
