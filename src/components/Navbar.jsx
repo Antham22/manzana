@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { bool, func } from 'prop-types';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import AppleLogo from './AppleLogo';
 import {
@@ -13,14 +13,45 @@ import {
   NAV_HEIGHT,
   slideDown,
   easeInDefault,
+  easeInSec,
+  fadeOut,
 } from '../constants/styles';
 import { NAV_LINKS } from '../constants/common';
 
-const Nav = styled.nav`
-  height: 100px;
+// Nav animations
+const slideInNav = css`
+  animation: ${slideDown} ${easeInDefault};
+`;
+
+const fadeOutNav = css`
+  transition: visibility 0s 1s, opacity 1s ease-out;
+`;
+
+const DefaultNav = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 100%;
+  visibility: ${({ isIntro }) => (isIntro ? 'hidden' : 'visable')};
+`;
+
+const IntroNav = styled.div`
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: ${BLACK};
+  visibility: ${({ isIntro }) => (isIntro ? 'visable' : 'hidden')};
+  opacity: ${({ isIntro }) => (isIntro ? '1' : '0')};
+  ${({ isIntro }) => (isIntro ? slideInNav : fadeOutNav)}
+`;
+
+const Nav = styled.nav`
+  position: relative;
+  height: ${NAV_HEIGHT};
   padding-right: calc(115px - 54px);
 `;
 
@@ -54,29 +85,13 @@ const NotifyButton = styled.button`
   font-size: inherit;
 `;
 
-const IntroNav = styled.nav`
-  position: fixed;
-  display: flex;
-  top: 0;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-  height: ${NAV_HEIGHT};
-  background-color: ${BLACK};
-  animation: ${slideDown} ${easeInDefault};
-`;
-
 const Navbar = ({ isIntro, handleToggleHome }) => {
-  if (isIntro) {
-    return (
+  return (
+    <Nav>
       <IntroNav isIntro={isIntro}>
         <AppleLogo color={WHITE} width={NAV_BRAND_WIDTH} />
       </IntroNav>
-    );
-  }
-  return (
-    <>
-      <Nav>
+      <DefaultNav isIntro={isIntro}>
         <NavBrand to="/" onClick={handleToggleHome}>
           <AppleLogo color="#fff" width={NAV_BRAND_WIDTH} />
         </NavBrand>
@@ -98,8 +113,8 @@ const Navbar = ({ isIntro, handleToggleHome }) => {
             <NotifyButton>Notify me</NotifyButton>
           </NavListItem>
         </NavList>
-      </Nav>
-    </>
+      </DefaultNav>
+    </Nav>
   );
 };
 

@@ -22,101 +22,71 @@ export const PAGE_SIDEBAR_WIDTH = "100px";
 export const easeInDefault = '1.6s ease-in 0s 1';
 export const easeInSec = '1s ease-in 0s 1'
 
-export const homeIntroSlideInContainer = keyframes`
-0% {
-top: 0;
-margin: 0;
+export const slideUpHomeIntroText = keyframes`
+    0% {
+        top: 83%
+    }
 
-}
-
-100% {
-top: calc(${NAV_HEIGHT} + 7px);
-margin: 0 100px ;
-}`
-;
-
-
-export const homeIntroTextPosition = keyframes`
-0% {
-top: 83%
-}
-
-100% {
-top: 51%
-}
+    100% {
+        top: 51%
+    }
 `;
 
 export const fadeIn = keyframes`
-0% {
-opacity: 0;
-}
+    0% {
+        opacity: 0;
+    }
 
-100% {
-opacity: 1;
+    100% {
+        opacity: 1;
 
-}
+    }
 `;
 
-export const fadeOut = keyframes`
-{
-    0% {
-        display: flex;
-        opacity: 1;
-    }
-    100% {
-        display: none;
-        opacity: 0; 
-    }
- }`
-
 export const scaleDown = keyframes`
-0% {
-transform: scale3d(2, 2,2);
+    0% {
+        transform: scale3d(2, 2,2);
 
-100% {
-    transform: scale3d(1);
-    
-}
+    100% {
+        transform: scale3d(1);   
+    }
 `;
     
 export const scaleUp = keyframes`
-0% {
-transform: scale(1.5);
+    0% {
+        transform: scale(1.5);
 
-100% {
-transform: scale(1);
-
-}
+    100% {
+        transform: scale(1);
+    }
 `;
 
 export const slideDown = keyframes`
-0% {
-    transform: translateY(-100%);
-}
+    0% {
+        transform: translateY(-100%);
+    }
 
-100% {
-    transform: translateY(0);
-}
+    100% {
+        transform: translateY(0);
+    }
 `;
 
-export const custom = keyframes`
-0% {
-    display:flex;
-    transform: translateY(-100%);
-}
+export const slideInHomeIntro = keyframes`
+    0% {
+        margin: 0;
+    }
 
-100% {
-    display: flex;
-    transform: translateY(0);
-}
-`;
+    100% {
+        margin: 107px 100px 0 ;
+    }`
+;
 
 export const slideUp = keyframes`
-0% {
-    transform: translateY(300%);
-}
+    0% {
+        transform: translateY(300%);
+    }
 
-100% {
-    transform: translateY(0);
-}
+    100% {
+        transform: translateY(0);
+    }
 `;

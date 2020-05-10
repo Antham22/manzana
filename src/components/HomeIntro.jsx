@@ -14,9 +14,9 @@ import {
   WHITE,
   easeInDefault,
   fadeIn,
-  homeIntroTextPosition,
-  homeIntroSlideInContainer,
   scaleUp,
+  slideInHomeIntro,
+  slideUpHomeIntroText,
 } from '../constants/styles';
 
 const IntroCounter = styled.div`
@@ -40,21 +40,24 @@ const IntroMessage = styled.h1`
   font-weight: 500;
   font-size: 20px;
   animation: ${scaleUp} ${easeInDefault}, ${fadeIn} ${easeInDefault},
-    ${homeIntroTextPosition} ${easeInDefault};
+    ${slideUpHomeIntroText} ${easeInDefault};
 `;
 
 const IntroWrapper = styled.div`
   position: relative;
-  height: calc(80% - ${CONTAINER_HEIGHT});
   display: flex;
   justify-content: center;
   align-items: center;
+  height: calc(80% - ${CONTAINER_HEIGHT});
   margin: 107px ${PAGE_SIDEBAR_WIDTH} 0;
-  animation: ${homeIntroSlideInContainer} ${easeInDefault};
   background: ${BACKGROUND_BLUE};
+  animation: ${slideInHomeIntro} ${easeInDefault};
 `;
 
 const Wrapper = styled.section`
+  position: absolute;
+  top: 0;
+  width: 100%;
   height: 100%;
   cursor: pointer;
 `;
