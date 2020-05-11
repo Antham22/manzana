@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { bool, func } from 'prop-types';
 import styled, { css } from 'styled-components';
 
+import { AuthContext } from '../context/AuthContext';
 import AppleLogo from './AppleLogo';
 import {
   BLACK,
@@ -84,6 +85,7 @@ const NotifyButton = styled.button`
 `;
 
 const Navbar = ({ isIntro, handleToggleHome }) => {
+  const { handleSignout } = useContext(AuthContext);
   return (
     <Nav>
       <IntroNav isIntro={isIntro}>
@@ -108,7 +110,7 @@ const Navbar = ({ isIntro, handleToggleHome }) => {
             </NavListItem>
           ))}
           <NavListItem>
-            <NotifyButton>Notify me</NotifyButton>
+            <NotifyButton onClick={handleSignout}>Sign out</NotifyButton>
           </NavListItem>
         </NavList>
       </DefaultNav>
