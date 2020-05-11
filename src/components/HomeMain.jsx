@@ -17,7 +17,7 @@ import {
   slideDown,
   slideUp,
 } from '../constants/styles';
-import { NAV_LINKS } from '../constants/common';
+import { NAV_LINKS } from '../constants/routes';
 
 const HomeHeader = styled.header`
   position: relative;

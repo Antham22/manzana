@@ -35,13 +35,13 @@ const FormInput = ({ error, label, name, onChange, ...rest }) => {
 };
 
 FormInput.propTypes = {
-  // error: string,
+  error: string,
   label: string,
   name: string,
 };
 
 FormInput.defaultProps = {
-  // error: null,
+  error: '',
   label: null,
   name: null,
 };

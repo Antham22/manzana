@@ -14,7 +14,7 @@ import {
   slideDown,
   easeInDefault,
 } from '../constants/styles';
-import { NAV_LINKS } from '../constants/common';
+import { NAV_LINKS } from '../constants/routes';
 
 // Nav animations
 const slideInNav = css`

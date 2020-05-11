@@ -9,11 +9,10 @@ const Wrapper = styled.div`
   box-shadow: 0px 3px 6px #00000029;
   border: 1px solid #f2f2f2;
   padding: 58px 0;
-  width: ${({ width }) => width};
 `;
 
-const Card = ({ children, width }) => {
-  return <Wrapper width={width}>{children}</Wrapper>;
+const Card = ({ children, customStyle }) => {
+  return <Wrapper style={customStyle}>{children}</Wrapper>;
 };
 
 Card.propTypes = {

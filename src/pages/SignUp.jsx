@@ -1,18 +1,19 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, Redirect } from 'react-router-dom';
 import styled from 'styled-components';
 
+import { AuthContext } from '../context/AuthContext';
 import { Card, FormInput, PrimaryButton } from '../components';
 import { BACKGROUND_BLUE, LIGHT_BLUE } from '../constants/styles';
+import {
+  ERROR_INVALID_EMAIL,
+  ERROR_INVALID_NAME,
+  ERROR_INVALID_PASSWORD,
+} from '../constants/errors';
 import { getFormData, validEmailRegex, validateForm } from '../utils';
 
-const Wrapper = styled.section`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  background: ${BACKGROUND_BLUE};
-  height: 100%;
+const FormSubmit = styled.div`
+  text-align: center;
 `;
 
 const SignUpForm = styled.div`
@@ -25,17 +26,25 @@ const SignUpForm = styled.div`
 
 const SignInLink = styled.div`
   margin-top: 13px;
-  width: 510px;
+  width: 100%;
+  max-width: 510px;
   a {
     color: ${LIGHT_BLUE};
   }
 `;
 
-const FormSubmit = styled.div`
-  text-align: center;
+const Wrapper = styled.section`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: ${BACKGROUND_BLUE};
+  height: 100%;
 `;
 
 const SignUp = () => {
+  const { handleSignin, isAuthenticated } = useContext(AuthContext);
+  const [redirect, setRedirect] = useState(false);
   const [errors, setErrors] = useState({
     full_name: '',
     email: '',
@@ -49,30 +58,40 @@ const SignUp = () => {
 
     switch (name) {
       case 'full_name':
-        inputErrors.full_name = value.length < 5 ? 'Full Name must be 5 characters long.' : '';
+        inputErrors.full_name = value.length < 5 ? ERROR_INVALID_NAME : '';
         break;
       case 'email':
-        inputErrors.email = validEmailRegex.test(value) ? '' : 'Email is not valid.';
+        inputErrors.email = validEmailRegex.test(value) ? '' : ERROR_INVALID_EMAIL;
         break;
       case 'password':
-        inputErrors.password = value.length < 8 ? 'Password must be 8 characters long.' : '';
+        inputErrors.password = value.length < 8 ? ERROR_INVALID_PASSWORD : '';
         break;
       default:
         break;
     }
 
+    inputErrors.submission = '';
     setErrors({ ...errors });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const data = getFormData(event.target.elements);
     const valid = validateForm(errors);
+
+    if (valid) {
+      handleSignin(data.full_name);
+      setRedirect(true);
+    }
   };
+
+  if (isAuthenticated) {
+    return <Redirect to="/" />;
+  }
 
   return (
     <Wrapper>
-      <Card width="510px">
+      <Card customStyle={{ width: '100%', maxWidth: '510px' }}>
         <SignUpForm>
           <h1>Sign-Up</h1>
           <form onSubmit={handleSubmit}>
