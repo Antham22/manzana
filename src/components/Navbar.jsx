@@ -13,8 +13,6 @@ import {
   NAV_HEIGHT,
   slideDown,
   easeInDefault,
-  easeInSec,
-  fadeOut,
 } from '../constants/styles';
 import { NAV_LINKS } from '../constants/common';
 

@@ -2,7 +2,6 @@ import App from './App';
 import AppleLogo from './AppleLogo';
 import Card from './Card';
 import FormInput from './FormInput';
-import FormLabel from './FormLabel';
 import HomeIntro from './HomeIntro';
 import HomeMain from './HomeMain';
 import Navbar from './Navbar';
@@ -13,7 +12,6 @@ export {
     AppleLogo, 
     Card, 
     FormInput, 
-    FormLabel, 
     HomeIntro, 
     HomeMain, 
     Navbar,
