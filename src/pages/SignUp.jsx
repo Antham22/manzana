@@ -44,7 +44,6 @@ const Wrapper = styled.section`
 
 const SignUp = () => {
   const { handleSignin, isAuthenticated } = useContext(AuthContext);
-  const [redirect, setRedirect] = useState(false);
   const [errors, setErrors] = useState({
     full_name: '',
     email: '',
@@ -81,7 +80,6 @@ const SignUp = () => {
 
     if (valid) {
       handleSignin(data.full_name);
-      setRedirect(true);
     }
   };
 
