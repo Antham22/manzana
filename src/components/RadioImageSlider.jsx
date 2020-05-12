@@ -5,10 +5,6 @@ import styled from 'styled-components';
 import { LIGHT } from '../constants/styles';
 
 const Fill = styled.div`
-  position: absolute;
-  left: 48%;
-  top: 15%;
-  margin-left: -15px;
   width: 29px;
   height: 29px;
   border-radius: 50%;
@@ -20,7 +16,9 @@ const Label = styled.div`
 `;
 
 const Radio = styled.div`
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
   border: 1px solid ${({ active }) => (active ? '#FF2D55' : 'rgba(112, 112, 112, 0.16)')};
   border-radius: 50%;
@@ -56,7 +54,7 @@ const RadioImageSlider = ({ handleUpdate, radiosArray }) => {
           <Radio active={radio.active} key={radio.id} onClick={handleOnToggle(index)}>
             <Fill style={{ backgroundColor: radio.color }} />
           </Radio>
-          <div>{radio.label}</div>
+          <Label>{radio.label}</Label>
         </div>
       ))}
     </Wrapper>
