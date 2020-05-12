@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import AppleLogo from './AppleLogo';
+import PageSlider from './PageSlider';
 
 import {
   BACKGROUND_GREY,
@@ -17,7 +18,6 @@ import {
   slideDown,
   slideUp,
 } from '../constants/styles';
-import { NAV_LINKS } from '../constants/routes';
 
 const HomeHeader = styled.header`
   position: relative;
@@ -55,7 +55,7 @@ const ProductsLink = styled(Link)`
   animation: ${slideUp} ${easeInSec}, ${fadeIn} ${easeInSec};
 `;
 
-const ProductsLinkList = styled.ul`
+const PageSliderContainer = styled.ul`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -80,18 +80,14 @@ const HomeMain = () => {
   return (
     <Wrapper>
       <HomeHeader>
-        <AppleLogo color={GREY} width={PAGE_LOGO_WIDTH} />
+        <AppleLogo color={GREY} customStyle={{ width: PAGE_LOGO_WIDTH }} />
         <HomeMessage>Welcome to Apple</HomeMessage>
         <ProductsLink to="/iphone">See our Products</ProductsLink>
       </HomeHeader>
       <HomeFooter>
-        <ProductsLinkList>
-          {NAV_LINKS.map((link) => (
-            <Link key={link.id} to={link.path}>
-              <img src={`/images/${link.id}-icon.png`} alt={`${link.id} icon`} />
-            </Link>
-          ))}
-        </ProductsLinkList>
+        <PageSliderContainer>
+          <PageSlider />
+        </PageSliderContainer>
       </HomeFooter>
     </Wrapper>
   );

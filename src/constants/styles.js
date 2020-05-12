@@ -3,8 +3,10 @@ import { keyframes } from 'styled-components'
 // colors
 export const BLACK = "#000";
 export const GREY = "#CCCCCC";
+export const ALT_GREY = '#999999';
 export const LIGHT = '#707070';
 export const LIGHT_BLUE = '#5AC8FA';
+export const RED = '#FF3B30';
 export const WHITE = '#fff';
 
 // Navbar
@@ -17,6 +19,14 @@ export const BACKGROUND_GREY = "transparent linear-gradient(90deg, #f2f2f2 0%, #
 export const CONTAINER_HEIGHT = `(${NAV_HEIGHT} - 7px)`;
 export const PAGE_LOGO_WIDTH = "295px";
 export const PAGE_SIDEBAR_WIDTH = "100px";
+export const APPLE_LOGO_CUSTOM = {
+    position: 'absolute',
+    top: '23%',
+    right: '30%',
+    zIndex: -1,
+    opacity: 0.3,
+    width: '165px',
+  };
 
 // animations
 export const easeInDefault = '1.6s ease-in 0s 1';

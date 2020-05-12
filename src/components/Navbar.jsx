@@ -15,7 +15,7 @@ import {
   slideDown,
   easeInDefault,
 } from '../constants/styles';
-import { NAV_LINKS } from '../constants/routes';
+import { NAV_LINKS } from '../constants/common';
 
 // Nav animations
 const slideInNav = css`
@@ -89,11 +89,11 @@ const Navbar = ({ isIntro, handleToggleHome }) => {
   return (
     <Nav>
       <IntroNav isIntro={isIntro}>
-        <AppleLogo color={WHITE} width={NAV_BRAND_WIDTH} />
+        <AppleLogo color={WHITE} customStyle={{ width: NAV_BRAND_WIDTH }} />
       </IntroNav>
       <DefaultNav isIntro={isIntro}>
         <NavBrand to="/" onClick={handleToggleHome}>
-          <AppleLogo color="#fff" width={NAV_BRAND_WIDTH} />
+          <AppleLogo color={WHITE} customStyle={{ width: NAV_BRAND_WIDTH }} />
         </NavBrand>
         <NavList>
           {NAV_LINKS.map((link) => (

@@ -73,7 +73,7 @@ const HomeIntro = ({ handleToggleHome }) => {
     <Wrapper onClick={handleToggleHome}>
       <IntroWrapper>
         <IntroLogoWrapper>
-          <AppleLogo color={WHITE} width={PAGE_LOGO_WIDTH} />
+          <AppleLogo color={WHITE} customStyle={{ width: PAGE_LOGO_WIDTH }} />
         </IntroLogoWrapper>
         <IntroMessage>New Products Coming This Summer</IntroMessage>
       </IntroWrapper>
