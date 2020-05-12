@@ -1,13 +1,22 @@
 import React, { useState } from 'react';
 import { array, func } from 'prop-types';
-import styled from 'styled-components';
 
-const Wrapper = styled.div`
-  flex: 2;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+import styled from 'styled-components';
+import { LIGHT } from '../constants/styles';
+
+const Fill = styled.div`
+  position: absolute;
+  left: 48%;
+  top: 15%;
+  margin-left: -15px;
+  width: 29px;
+  height: 29px;
+  border-radius: 50%;
+  border: 1px solid #000;
+`;
+
+const Label = styled.div`
+  color: ${LIGHT};
 `;
 
 const Radio = styled.div`
@@ -21,15 +30,12 @@ const Radio = styled.div`
   cursor: pointer;
 `;
 
-const Fill = styled.div`
-  position: absolute;
-  left: 48%;
-  top: 15%;
-  margin-left: -15px;
-  width: 29px;
-  height: 29px;
-  border-radius: 50%;
-  border: 1px solid #000;
+const Wrapper = styled.div`
+  flex: 2;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const RadioImageSlider = ({ handleUpdate, radiosArray }) => {
