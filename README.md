@@ -1,6 +1,6 @@
-#  Manzana 
+#  Manzana  - Apple's 2019 Summer Product Line
 
-An clone of Apple's 2019 summer products page built with React, React Router and Styled Components https://manzana.now.sh/.
+Live @ https://manzana.now.sh/.
 
 ## Prerequisites
 
