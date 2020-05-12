@@ -17,7 +17,7 @@ const Price = styled.h2`
 `;
 
 const Wrapper = styled.div`
-  padding: 0 76px;
+  padding-left: 76px;
   display: flex;
   justify-content: center;
   flex-direction: column;

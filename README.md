@@ -1,14 +1,14 @@
 #  Manzana 
 
-A clone of Apple's 2019 summer product page built with React, React Router and Styled Components https://manzana.now.sh/.
+An clone of Apple's 2019 summer products page built with React, React Router and Styled Components https://manzana.now.sh/.
 
 ## Prerequisites
 
-This app was developed using Node.js(v10.9.0+). It is recommended that you install or update to the lastest version of node. It is also recommended that yarn(v1.3.2+) be used as the package manager.
+This app was developed using Node.js(v12.9.1+). It is recommended that you install or update to the lastest version of node. It is also recommended that yarn(v1.17.3+) be used as the package manager.
 
 ## Installing
 
-First, lets clone the repo:
+First, clone the repo:
 
 ```
 $ https://github.com/Antham22/manzana.git
@@ -17,7 +17,7 @@ $ cd manzana
 
 ### `yarn`
 
-Installs all dependencies for the app.
+Installs dependencies.
 
 ### `yarn start`
 
@@ -31,7 +31,7 @@ email: billy.gates@microsoft.com
 password: windowsPC4eva
 ```
 
-\*NOTE: The app is not connected to any backend database so all sign-up data and sessions will be lost on page refresh.
+\*NOTE: The app is not connected to any database so all sign-up data and sessions will be lost on page refresh.
 
 ## Built With
 
@@ -47,6 +47,7 @@ password: windowsPC4eva
 
 - Add MacBook Page
 - Add animations for page transitions
+- Responsiveness
 
 ## Feedback
 

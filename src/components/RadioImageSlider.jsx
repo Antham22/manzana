@@ -5,6 +5,9 @@ import styled from 'styled-components';
 const Wrapper = styled.div`
   flex: 2;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const Radio = styled.div`
@@ -17,10 +20,11 @@ const Radio = styled.div`
   margin: 0 36px;
   cursor: pointer;
 `;
+
 const Fill = styled.div`
   position: absolute;
   left: 48%;
-  top: 16%;
+  top: 15%;
   margin-left: -15px;
   width: 29px;
   height: 29px;
@@ -41,13 +45,14 @@ const RadioImageSlider = ({ handleUpdate, radiosArray }) => {
 
   return (
     <Wrapper>
-      <div>
-        {radios.map((radio, index) => (
+      {radios.map((radio, index) => (
+        <div>
           <Radio active={radio.active} key={radio.id} onClick={handleOnToggle(index)}>
             <Fill style={{ backgroundColor: radio.color }} />
           </Radio>
-        ))}
-      </div>
+          <div>{radio.label}</div>
+        </div>
+      ))}
     </Wrapper>
   );
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import { element } from 'prop-types';
+import { node } from 'prop-types';
 import styled from 'styled-components';
 
 import HeroHeading from './HeroHeading';
@@ -16,7 +16,7 @@ const Hero = ({ children }) => {
 Hero.Heading = HeroHeading;
 
 Hero.propTypes = {
-  children: element.isRequired,
+  children: node.isRequired,
 };
 
 export default Hero;

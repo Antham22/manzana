@@ -7,7 +7,7 @@ import { PAGE_SIDEBAR_WIDTH } from '../constants/styles';
 
 const Wrapper = styled.section`
   height: 100%;
-  padding: 7px 0 50px;
+  padding-top: 7px;
   margin-left: ${PAGE_SIDEBAR_WIDTH};
 `;
 

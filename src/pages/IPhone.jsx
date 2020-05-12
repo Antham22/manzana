@@ -7,18 +7,24 @@ import { APPLE_LOGO_IPHONE, GREY } from '../constants/styles';
 
 const Bottom = styled.div`
   display: flex;
-  padding-top: 50px;
+  padding: 50px 0;
 `;
 
 const HeroImage = styled.img`
   position: absolute;
   width: 56%;
+  @media (min-width: 1200px) {
+    position: absolute;
+    width: 56%;
+  }
 `;
 
 const HeroRight = styled.div`
   position: relative;
-  flex: 1;
   padding-top: 84px;
+  @media (min-width: 1200px) {
+    flex: 1;
+  }
 `;
 
 const IPhone = () => {
