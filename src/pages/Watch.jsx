@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-import { AppleLogo, BuyNow, HeroMain, ImageSlider, Navbar, PageSlider } from '../components';
-import { IPHONE_IMAGES } from '../constants/common';
-import { APPLE_LOGO_IPHONE, GREY, PAGE_SIDEBAR_WIDTH } from '../constants/styles';
+import { AppleLogo, BuyNow, HeroMain, Navbar, PageSlider, RadioImageSlider } from '../components';
+import { WATCH_IMAGES } from '../constants/common';
+import { APPLE_LOGO_WATCH, GREY, PAGE_SIDEBAR_WIDTH } from '../constants/styles';
 
 const Hero = styled.div`
   display: flex;
@@ -16,8 +16,7 @@ const Bottom = styled.div`
 `;
 
 const HeroImage = styled.img`
-  position: absolute;
-  width: 56%;
+  width: 77%;
 `;
 
 const PageSliderContainer = styled.div`
@@ -34,9 +33,8 @@ const PageSliderContainer = styled.div`
 `;
 
 const HeroRight = styled.div`
-  position: relative;
-  flex: 1;
   padding-top: 84px;
+  flex: 2;
 `;
 
 const Wrapper = styled.section`
@@ -45,10 +43,10 @@ const Wrapper = styled.section`
   margin-left: ${PAGE_SIDEBAR_WIDTH};
 `;
 
-const IPhone = () => {
-  const [heroImage, setHeroImage] = useState(IPHONE_IMAGES[0].hero);
+const Watch = () => {
+  const [heroImage, setHeroImage] = useState(WATCH_IMAGES[0].hero);
 
-  const updateHeroImage = (index) => setHeroImage(IPHONE_IMAGES[index].hero);
+  const updateHeroImage = (index) => setHeroImage(WATCH_IMAGES[index].hero);
 
   return (
     <>
@@ -56,14 +54,15 @@ const IPhone = () => {
       <Wrapper>
         <Hero>
           <HeroMain
-            title="iPhone"
-            heading={['The ultimate', 'iPhone']}
+            title="Apple Watch"
+            heading={['Change starts', 'within', '', '']}
             message={[
-              'The future is here. Join the iPhone',
-              'Upgrade Program to get the latest iPhone - NOW!',
+              'Apple Watch Series 4. Fundametally redesigned and',
+              're-engineered to help you be even more active,',
+              'healthy, and connected.',
             ]}
           >
-            <AppleLogo color={GREY} customStyle={APPLE_LOGO_IPHONE} />
+            <AppleLogo color={GREY} customStyle={APPLE_LOGO_WATCH} />
           </HeroMain>
           <HeroRight>
             <HeroImage src={heroImage} alt="hero image" />
@@ -74,11 +73,11 @@ const IPhone = () => {
         </PageSliderContainer>
         <Bottom>
           <BuyNow price="$699" />
-          <ImageSlider handleUpdate={updateHeroImage} imageArray={IPHONE_IMAGES} />
+          <RadioImageSlider handleUpdate={updateHeroImage} radiosArray={WATCH_IMAGES} />
         </Bottom>
       </Wrapper>
     </>
   );
 };
 
-export default IPhone;
+export default Watch;

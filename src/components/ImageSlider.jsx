@@ -6,7 +6,6 @@ import { RED } from '../constants/styles';
 
 const Wrapper = styled.div`
   flex: 2;
-  padding-top: 50px;
   div:first-child {
     display: inline-block;
   }
@@ -35,10 +34,10 @@ const ImageSlider = ({ customStyle, handleUpdate, imageArray }) => {
   const [images, setImages] = useState(imageArray);
 
   const handleOnToggle = (index) => () => {
-    const newImageStates = images.map((image, i) => {
+    const imagesState = images.map((image, i) => {
       return index === i ? { ...image, active: true } : { ...image, active: false };
     });
-    setImages(newImageStates);
+    setImages(imagesState);
     handleUpdate(index);
   };
 

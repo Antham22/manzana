@@ -1,9 +1,8 @@
 import React from 'react';
-import { array, string } from 'prop-types';
+import { array, element, string } from 'prop-types';
 import styled from 'styled-components';
 
-import AppleLogo from './AppleLogo';
-import { ALT_GREY, APPLE_LOGO_CUSTOM, BACKGROUND_GREY, GREY, RED } from '../constants/styles';
+import { ALT_GREY, BACKGROUND_GREY, RED } from '../constants/styles';
 
 const Heading = styled.h1`
   font-size: 100px;
@@ -31,7 +30,7 @@ const Wrapper = styled.div`
   flex: 2;
 `;
 
-const HeroMain = ({ heading, message, title }) => {
+const HeroMain = ({ children, heading, message, title }) => {
   const widowKilla = (texts) => {
     return texts.map((phrase, index) => {
       const key = `key-key-${Math.random()}`;
@@ -51,15 +50,20 @@ const HeroMain = ({ heading, message, title }) => {
       <Title>{title}</Title>
       <Heading>{widowKilla(heading)}</Heading>
       <Message>{widowKilla(message)}</Message>
-      <AppleLogo color={GREY} customStyle={APPLE_LOGO_CUSTOM} />
+      {children}
     </Wrapper>
   );
 };
 
 HeroMain.propTypes = {
+  children: element,
   heading: array.isRequired,
   message: array.isRequired,
   title: string.isRequired,
+};
+
+HeroMain.defaultProps = {
+  children: null,
 };
 
 export default HeroMain;

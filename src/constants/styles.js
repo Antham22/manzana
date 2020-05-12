@@ -19,14 +19,20 @@ export const BACKGROUND_GREY = "transparent linear-gradient(90deg, #f2f2f2 0%, #
 export const CONTAINER_HEIGHT = `(${NAV_HEIGHT} - 7px)`;
 export const PAGE_LOGO_WIDTH = "295px";
 export const PAGE_SIDEBAR_WIDTH = "100px";
-export const APPLE_LOGO_CUSTOM = {
+export const APPLE_LOGO_IPHONE = {
     position: 'absolute',
     top: '23%',
-    right: '30%',
+    right: '32%',
     zIndex: -1,
     opacity: 0.3,
     width: '165px',
   };
+
+export const APPLE_LOGO_WATCH = {
+    ...APPLE_LOGO_IPHONE,
+    top: '19%',
+    right: '11%',
+}
 
 // animations
 export const easeInDefault = '1.6s ease-in 0s 1';

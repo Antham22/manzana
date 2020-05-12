@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import { AuthContextProvider } from '../context/AuthContext';
 import PrivateRoute from './PrivateRoute';
-import { Home, IPhone, SignIn, SignUp } from '../pages';
+import { Home, IPhone, SignIn, SignUp, Watch } from '../pages';
 
 const App = () => {
   return (
@@ -15,6 +15,7 @@ const App = () => {
             <Route path="/sign-in" component={SignIn} exact />
             <Route path="/sign-up" component={SignUp} exact />
             <PrivateRoute path="/iphone" component={IPhone} exact />
+            <PrivateRoute path="/watch" component={Watch} exact />
           </Switch>
         </Router>
       </AuthContextProvider>

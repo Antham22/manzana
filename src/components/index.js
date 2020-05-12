@@ -10,6 +10,7 @@ import ImageSlider from './ImageSlider';
 import Navbar from './Navbar';
 import PageSlider from './PageSlider'
 import PrimaryButton from './PrimaryButton';
+import RadioImageSlider from './RadioImageSlider';
 
 export { 
     App, 
@@ -23,5 +24,6 @@ export {
     ImageSlider,
     Navbar,
     PageSlider,
-    PrimaryButton 
+    PrimaryButton,
+    RadioImageSlider 
 };

@@ -1,4 +1,3 @@
-
 export const IPHONE_IMAGES = [
     {
         id: 'iphone-front',
@@ -35,3 +34,20 @@ export const NAV_LINKS = [
         path: '/watch'
     }
 ];
+
+export const WATCH_IMAGES = [
+    {
+      id: 'white-watch-radio',
+      color: '#fff',
+      label: 'White',
+      active: true,
+      hero: '/images/watch-white-2@2x.png',
+    },
+    {
+      active: false,
+      id: 'black-watch-radio',
+      color: '#000',
+      hero: '/images/watch-black-1@2x.png',
+      label: 'Black',
+    },
+  ];
