@@ -23,11 +23,11 @@ export const NAV_LINKS = [
         name: 'iPhone',
         path: '/iphone',
     },
-    {
-        id: 'macbook',
-        name: 'MacBook Pro',
-        path: '/macbook-pro'
-    },
+    // {
+    //     id: 'macbook',
+    //     name: 'MacBook Pro',
+    //     path: '/macbook-pro',
+    // },
     {
         id: 'watch',
         name: 'Watch',

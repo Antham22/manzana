@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import { array, func, object } from 'prop-types';
+import { array, func } from 'prop-types';
 import styled from 'styled-components';
-
-import { BLACK, WHITE } from '../constants/styles';
 
 const Wrapper = styled.div`
   flex: 2;
