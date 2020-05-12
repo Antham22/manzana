@@ -66,7 +66,7 @@ const HomeIntro = ({ handleToggleHome }) => {
   const [counter, setCounter] = useState(0);
 
   useEffect(() => {
-    setCounter(2020);
+    setCounter(2019);
   }, [setCounter]);
 
   return (
