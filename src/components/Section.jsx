@@ -6,8 +6,7 @@ import PageSlider from './PageSlider';
 import { PAGE_SIDEBAR_WIDTH } from '../constants/styles';
 
 const Wrapper = styled.section`
-  height: 100%;
-  padding-top: 7px;
+  height: calc(100% - 100px);
   margin-left: ${PAGE_SIDEBAR_WIDTH};
 `;
 

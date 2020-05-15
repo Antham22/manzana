@@ -18,7 +18,7 @@ const Welcome = styled.div`
 
 const ProductsLink = styled(Link)`
   position: absolute;
-  top: 80%;
+  top: 90%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: ${LIGHT_BLUE};

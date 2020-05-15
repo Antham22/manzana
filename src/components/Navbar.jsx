@@ -4,7 +4,7 @@ import { bool, func } from 'prop-types';
 import styled from 'styled-components';
 
 import { AuthContext } from '../context/AuthContext';
-import AppleLogo from './AppleLogo';
+import AppleBrand from './AppleBrand';
 import { BLACK, LIGHT, LIGHT_BLUE, NAV_BRAND_WIDTH, WHITE, NAV_HEIGHT } from '../constants/styles';
 import { NAV_LINKS } from '../constants/common';
 
@@ -26,10 +26,8 @@ const IntroNav = styled.div`
 `;
 
 const Nav = styled.nav`
-  position: fixed;
   width: 100%;
   height: ${NAV_HEIGHT};
-  padding-right: calc(115px - 54px);
   background-color: ${WHITE};
   z-index: 1;
 `;
@@ -70,12 +68,12 @@ const Navbar = ({ isIntro, handleToggleHome }) => {
     <Nav>
       {isIntro ? (
         <IntroNav isIntro={isIntro}>
-          <AppleLogo color={WHITE} customStyle={{ width: NAV_BRAND_WIDTH }} />
+          <AppleBrand color={WHITE} customStyle={{ width: NAV_BRAND_WIDTH }} />
         </IntroNav>
       ) : (
         <DefaultNav isIntro={isIntro}>
           <NavBrand to="/" onClick={handleToggleHome}>
-            <AppleLogo color={WHITE} customStyle={{ width: NAV_BRAND_WIDTH }} />
+            <AppleBrand color={WHITE} customStyle={{ width: NAV_BRAND_WIDTH }} />
           </NavBrand>
           <NavList>
             {NAV_LINKS.map((link) => (

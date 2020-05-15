@@ -50,7 +50,7 @@ const RadioImageSlider = ({ handleUpdate, radiosArray }) => {
   return (
     <Wrapper>
       {radios.map((radio, index) => (
-        <div>
+        <div key={`${radio.id}-${Math.random()}`}>
           <Radio active={radio.active} key={radio.id} onClick={handleOnToggle(index)}>
             <Fill style={{ backgroundColor: radio.color }} />
           </Radio>
