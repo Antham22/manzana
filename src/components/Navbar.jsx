@@ -1,41 +1,21 @@
 import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { bool, func } from 'prop-types';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 import { AuthContext } from '../context/AuthContext';
 import AppleLogo from './AppleLogo';
-import {
-  BLACK,
-  LIGHT,
-  LIGHT_BLUE,
-  NAV_BRAND_WIDTH,
-  WHITE,
-  NAV_HEIGHT,
-  slideDown,
-  easeInDefault,
-} from '../constants/styles';
+import { BLACK, LIGHT, LIGHT_BLUE, NAV_BRAND_WIDTH, WHITE, NAV_HEIGHT } from '../constants/styles';
 import { NAV_LINKS } from '../constants/common';
-
-// Nav animations
-const slideInNav = css`
-  animation: ${slideDown} ${easeInDefault};
-`;
-
-const fadeOutNav = css`
-  transition: visibility 0s 1s, opacity 1s ease-out;
-`;
 
 const DefaultNav = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 100%;
-  visibility: ${({ isIntro }) => (isIntro ? 'hidden' : 'visable')};
 `;
 
 const IntroNav = styled.div`
-  position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -43,15 +23,15 @@ const IntroNav = styled.div`
   width: 100%;
   height: 100%;
   background-color: ${BLACK};
-  visibility: ${({ isIntro }) => (isIntro ? 'visable' : 'hidden')};
-  opacity: ${({ isIntro }) => (isIntro ? '1' : '0')};
-  ${({ isIntro }) => (isIntro ? slideInNav : fadeOutNav)}
 `;
 
 const Nav = styled.nav`
-  position: relative;
+  position: fixed;
+  width: 100%;
   height: ${NAV_HEIGHT};
   padding-right: calc(115px - 54px);
+  background-color: ${WHITE};
+  z-index: 1;
 `;
 
 const NavBrand = styled(Link)`
@@ -88,32 +68,35 @@ const Navbar = ({ isIntro, handleToggleHome }) => {
   const { handleSignout } = useContext(AuthContext);
   return (
     <Nav>
-      <IntroNav isIntro={isIntro}>
-        <AppleLogo color={WHITE} customStyle={{ width: NAV_BRAND_WIDTH }} />
-      </IntroNav>
-      <DefaultNav isIntro={isIntro}>
-        <NavBrand to="/" onClick={handleToggleHome}>
+      {isIntro ? (
+        <IntroNav isIntro={isIntro}>
           <AppleLogo color={WHITE} customStyle={{ width: NAV_BRAND_WIDTH }} />
-        </NavBrand>
-        <NavList>
-          {NAV_LINKS.map((link) => (
-            <NavListItem key={link.id}>
-              <NavLink
-                activeStyle={{
-                  fontWeight: 500,
-                  color: BLACK,
-                }}
-                to={link.path}
-              >
-                {link.name}
-              </NavLink>
+        </IntroNav>
+      ) : (
+        <DefaultNav isIntro={isIntro}>
+          <NavBrand to="/" onClick={handleToggleHome}>
+            <AppleLogo color={WHITE} customStyle={{ width: NAV_BRAND_WIDTH }} />
+          </NavBrand>
+          <NavList>
+            {NAV_LINKS.map((link) => (
+              <NavListItem key={link.id}>
+                <NavLink
+                  activeStyle={{
+                    fontWeight: 500,
+                    color: BLACK,
+                  }}
+                  to={link.path}
+                >
+                  {link.name}
+                </NavLink>
+              </NavListItem>
+            ))}
+            <NavListItem>
+              <NotifyButton onClick={handleSignout}>Sign out</NotifyButton>
             </NavListItem>
-          ))}
-          <NavListItem>
-            <NotifyButton onClick={handleSignout}>Sign out</NotifyButton>
-          </NavListItem>
-        </NavList>
-      </DefaultNav>
+          </NavList>
+        </DefaultNav>
+      )}
     </Nav>
   );
 };

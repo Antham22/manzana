@@ -4,7 +4,7 @@ export const AuthContext = createContext();
 
 const initialState = {
   name: '',
-  isAuthenticated: false,
+  isAuthenticated: true,
 };
 
 const reducer = (state, action) => {
@@ -30,7 +30,7 @@ export const AuthContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const handleSignin = (payload) => dispatch({ type: 'signinUser', payload });
-  const handleSignout = (payload) => dispatch({ type: 'signoutUser' });
+  const handleSignout = () => dispatch({ type: 'signoutUser' });
 
   return (
     <AuthContext.Provider value={{ ...state, handleSignin, handleSignout }}>
