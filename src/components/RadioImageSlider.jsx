@@ -38,7 +38,7 @@ const Radio = styled.div`
 `;
 
 const Wrapper = styled.div`
-  flex: 2;
+  flex: 1;
   text-align: center;
   display: flex;
   align-items: center;

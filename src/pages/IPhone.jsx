@@ -10,20 +10,33 @@ const Bottom = styled.div`
 `;
 
 const Image = styled.img`
+  position: absolute;
   height: 100%;
 `;
 
 const ImageContainer = styled.div`
   position: absolute;
-  text-align: center;
   height: 100%;
   width: 100%;
 `;
 
-const IPhone = () => {
-  const [heroImage, setHeroImage] = useState(IPHONE_IMAGES[0].hero);
+const OffestContainer = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+`;
 
-  const updateHeroImage = (index) => setHeroImage(IPHONE_IMAGES[index].hero);
+const IPhone = () => {
+  const [images, setImages] = useState(IPHONE_IMAGES);
+
+  const handleOnToggle = (index) => () => {
+    const imagesState = images.map((image, i) => {
+      return index === i ? { ...image, active: true } : { ...image, active: false };
+    });
+    setImages(imagesState);
+  };
 
   return (
     <Section>
@@ -36,12 +49,21 @@ const IPhone = () => {
         ]}
       >
         <ImageContainer>
-          <Image src={heroImage} alt="hero image" />
+          <OffestContainer>
+            {images.map((image) => (
+              <Image
+                alt="hero image"
+                key={image.id}
+                src={image.hero}
+                style={{ opacity: image.active ? 1 : 0 }}
+              />
+            ))}
+          </OffestContainer>
         </ImageContainer>
       </Hero>
       <Bottom>
         <BuyNow price="$699" />
-        <ImageSlider handleUpdate={updateHeroImage} imageArray={IPHONE_IMAGES} />
+        <ImageSlider handleUpdate={handleOnToggle} images={images} />
       </Bottom>
     </Section>
   );

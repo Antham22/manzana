@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { array, func, object } from 'prop-types';
+import React from 'react';
+import { array, func } from 'prop-types';
 import styled from 'styled-components';
 
 import { RED } from '../constants/styles';
@@ -30,42 +30,27 @@ const ToggleSwitch = styled.span`
   cursor: pointer;
 `;
 
-const ImageSlider = ({ customStyle, handleUpdate, imageArray }) => {
-  const [images, setImages] = useState(imageArray);
-
-  const handleOnToggle = (index) => () => {
-    const imagesState = images.map((image, i) => {
-      return index === i ? { ...image, active: true } : { ...image, active: false };
-    });
-    setImages(imagesState);
-    handleUpdate(index);
-  };
-
+const ImageSlider = ({ handleUpdate, images }) => {
   return (
-    <Wrapper style={customStyle}>
+    <Wrapper>
       <div>
         {images.map((image, index) => {
           return (
             <Image
               key={image.id}
-              onClick={handleOnToggle(index)}
-              src={image.active ? image.activePath : image.inActivePath}
+              onClick={handleUpdate(index)}
+              src={image.path}
               alt={image.alt}
+              style={{ opacity: image.active ? 1 : 0.5 }}
             />
           );
         })}
         <ToggleContainer>
-          <div>
-            {images.map((image, index) => {
-              return (
-                <ToggleSwitch
-                  key={image.id}
-                  active={image.active}
-                  onClick={handleOnToggle(index)}
-                />
-              );
-            })}
-          </div>
+          {images.map((image, index) => {
+            return (
+              <ToggleSwitch key={image.id} active={image.active} onClick={handleUpdate(index)} />
+            );
+          })}
         </ToggleContainer>
       </div>
     </Wrapper>
@@ -73,13 +58,8 @@ const ImageSlider = ({ customStyle, handleUpdate, imageArray }) => {
 };
 
 ImageSlider.propTypes = {
-  customStyle: object,
   handleUpdate: func.isRequired,
-  imageArray: array.isRequired,
-};
-
-ImageSlider.defaultProps = {
-  customStyle: null,
+  images: array.isRequired,
 };
 
 export default ImageSlider;

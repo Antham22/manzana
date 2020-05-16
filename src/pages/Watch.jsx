@@ -17,7 +17,9 @@ const Image = styled.img`
 `;
 
 const ImageContainer = styled.div`
-  width: 75%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
   position: relative;
 `;
 
