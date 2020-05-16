@@ -4,8 +4,6 @@ import BuyNow from './BuyNow';
 import Card from './Card';
 import FormInput from './FormInput';
 import Hero from './Hero';
-import HomeIntro from './HomeIntro';
-import HomeMain from './HomeMain';
 import HomeWrapper from './HomeWrapper'
 import ImageSlider from './ImageSlider';
 import IntroNavbar from './IntroNavbar'
@@ -22,8 +20,6 @@ export {
     Card, 
     FormInput, 
     Hero,
-    HomeIntro, 
-    HomeMain, 
     HomeWrapper,
     ImageSlider,
     IntroNavbar,

@@ -1,22 +1,32 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
 import { NAV_LINKS } from '../constants/common';
+import { linkTransitionTime } from '../constants/styles';
+
+const SliderLink = styled(NavLink)`
+  opacity: 0.5;
+
+  &:hover {
+    opacity: 1;
+  }
+  transition: opacity ${linkTransitionTime};
+`;
 
 const PageSlider = () => {
-  const { pathname } = useLocation();
-
-  const activeIcon = (link) => {
-    return pathname === link.path
-      ? `/images/${link.id}-active-icon.png`
-      : `/images/${link.id}-icon.png`;
-  };
   return (
     <>
       {NAV_LINKS.map((link) => (
-        <Link key={link.id} to={link.path}>
-          <img src={activeIcon(link)} alt={`${link.id} icon`} />
-        </Link>
+        <SliderLink
+          activeStyle={{
+            opacity: 1,
+          }}
+          key={link.id}
+          to={link.path}
+        >
+          <img src={`/images/${link.id}-active-icon.png`} alt={`${link.id} icon`} />
+        </SliderLink>
       ))}
     </>
   );

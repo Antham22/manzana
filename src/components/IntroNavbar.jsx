@@ -20,11 +20,6 @@ const Nav = styled.nav`
   height: ${NAV_HEIGHT};
   background-color: ${BLACK};
   animation: ${slideDown} ${easeInDefault};
-
-  &.example-exit {
-    opacity: 0;
-    transition: opacity 1500s ease-in;
-  }
 `;
 
 const IntroNavbar = () => {

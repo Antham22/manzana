@@ -1,13 +1,24 @@
 import React, { useContext } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { AuthContext } from '../context/AuthContext';
 import AppleBrand from './AppleBrand';
-import { BLACK, LIGHT, LIGHT_BLUE, NAV_BRAND_WIDTH, WHITE, NAV_HEIGHT } from '../constants/styles';
+import {
+  BLACK,
+  LIGHT_BLUE,
+  NAV_BRAND_WIDTH,
+  WHITE,
+  NAV_HEIGHT,
+  fadeOut,
+  linkTransitionTime,
+} from '../constants/styles';
 import { NAV_LINKS } from '../constants/common';
 
+export const fadeOutTime = '1s ease-out 0s 1';
+
 const Nav = styled.div`
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -30,9 +41,17 @@ const NavList = styled.ul`
 `;
 const NavListItem = styled.li`
   display: inline;
-  color: ${LIGHT};
   font-size: 20px;
   margin-right: 54px;
+`;
+
+const StyledNavLink = styled(NavLink)`
+  opacity: 0.5;
+
+  &:hover {
+    opacity: 1;
+  }
+  transition: opacity ${linkTransitionTime};
 `;
 
 const NotifyButton = styled.button`
@@ -42,27 +61,55 @@ const NotifyButton = styled.button`
   width: 156px;
   border-radius: 25px;
   font-size: inherit;
+
+  &:hover {
+    background-color: ${WHITE};
+    border: 1px solid ${LIGHT_BLUE};
+    color: ${LIGHT_BLUE};
+  }
+  transition: ${linkTransitionTime};
+`;
+
+const IntroNavTransition = styled.div`
+  position: absolute;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: ${BLACK};
+  visibility: hidden;
+  animation: ${fadeOut} ${fadeOutTime};
 `;
 
 const Navbar = () => {
+  const { state } = useLocation();
   const { handleSignout } = useContext(AuthContext);
+
   return (
     <Nav>
+      {state && state.fromIntro && (
+        <IntroNavTransition>
+          <AppleBrand color={WHITE} customStyle={{ width: NAV_BRAND_WIDTH }} />
+        </IntroNavTransition>
+      )}
+
       <NavBrand to="/intro">
         <AppleBrand color={WHITE} customStyle={{ width: NAV_BRAND_WIDTH }} />
       </NavBrand>
       <NavList>
         {NAV_LINKS.map((link) => (
           <NavListItem key={link.id}>
-            <NavLink
+            <StyledNavLink
               activeStyle={{
                 fontWeight: 500,
-                color: BLACK,
+                opacity: 1,
               }}
               to={link.path}
             >
               {link.name}
-            </NavLink>
+            </StyledNavLink>
           </NavListItem>
         ))}
         <NavListItem>

@@ -22,6 +22,7 @@ export const PAGE_SIDEBAR_WIDTH = "100px";
 
 // animations
 export const easeInDefault = '1.5s ease-in 0s 1';
+export const linkTransitionTime ='0.3s ease-in-out'
 
 export const homeIntroText = keyframes`
    from {
@@ -48,10 +49,12 @@ export const fadeIn = keyframes`
 
 export const fadeOut = keyframes`
     from  {
+        visibility: visible;
         opacity: 1;
     }
 
     to {
+        visibility: hidden;
         opacity: 0;
 
     }
@@ -87,3 +90,39 @@ export const slideInHomeIntro = keyframes`
         transform: translateY(0);
     }`
 ;
+
+export const slideDownHomeWelcome = keyframes`
+    from {
+        transform: translate(-50%, -100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+`;
+
+export const slideUpHomeProductsLink = keyframes`
+    from {
+        transform: translate(-50%, 150%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+`;
+
+export const scaleDownHomePageSlider = keyframes`
+    from {
+        transform: scale(2);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+`;
