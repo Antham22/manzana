@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import { BuyNow, Hero, RadioImageSlider, Section } from '../components';
 import { WATCH_IMAGES } from '../constants/common';
+import { linkTransitionTime } from '../constants/styles';
 
 const Bottom = styled.div`
   display: flex;
@@ -10,13 +11,25 @@ const Bottom = styled.div`
 `;
 
 const Image = styled.img`
+  position: absolute;
+
+  transition: opacity ${linkTransitionTime};
+`;
+
+const ImageContainer = styled.div`
   width: 75%;
+  position: relative;
 `;
 
 const Watch = () => {
-  const [heroImage, setHeroImage] = useState(WATCH_IMAGES[0].hero);
+  const [images, setImages] = useState(WATCH_IMAGES);
 
-  const updateHeroImage = (index) => setHeroImage(WATCH_IMAGES[index].hero);
+  const handleOnToggle = (index) => () => {
+    const imagesState = images.map((image, i) => {
+      return index === i ? { ...image, active: true } : { ...image, active: false };
+    });
+    setImages(imagesState);
+  };
 
   return (
     <Section>
@@ -29,11 +42,20 @@ const Watch = () => {
           'healthy, and connected.',
         ]}
       >
-        <Image src={heroImage} alt="hero image" />
+        <ImageContainer>
+          {images.map((image) => (
+            <Image
+              alt="hero image"
+              key={image.id}
+              src={image.hero}
+              style={{ opacity: image.active ? 1 : 0 }}
+            />
+          ))}
+        </ImageContainer>
       </Hero>
       <Bottom>
         <BuyNow price="$699" />
-        <RadioImageSlider handleUpdate={updateHeroImage} radiosArray={WATCH_IMAGES} />
+        <RadioImageSlider handleUpdate={handleOnToggle} images={images} />
       </Bottom>
     </Section>
   );

@@ -1,18 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { array, func } from 'prop-types';
 
 import styled from 'styled-components';
-import { LIGHT } from '../constants/styles';
+import { LIGHT, linkTransitionTime } from '../constants/styles';
 
 const Fill = styled.div`
   width: 29px;
   height: 29px;
   border-radius: 50%;
-  border: 1px solid #000;
+  border: 1px solid ${LIGHT};
 `;
 
 const Label = styled.div`
   color: ${LIGHT};
+  margin-top: 10px;
 `;
 
 const Radio = styled.div`
@@ -20,12 +21,20 @@ const Radio = styled.div`
   align-items: center;
   justify-content: center;
   position: relative;
-  border: 1px solid ${({ active }) => (active ? '#FF2D55' : 'rgba(112, 112, 112, 0.16)')};
+  border: 1px solid rgba(112, 112, 112, 0.16);
+  border-color: ${({ active }) => (active ? '#FF2D55' : 'rgba(112, 112, 112, 0.16)')};
   border-radius: 50%;
   width: 45px;
   height: 45px;
   margin: 0 36px;
   cursor: pointer;
+  animation: borderColor ${linkTransitionTime};
+
+  @keyframes borderColor {
+    0% {
+      border-color: ${({ active }) => (active ? '#FF2D55' : 'rgba(112, 112, 112, 0.16)')};
+    }
+  }
 `;
 
 const Wrapper = styled.div`
@@ -36,25 +45,15 @@ const Wrapper = styled.div`
   justify-content: center;
 `;
 
-const RadioImageSlider = ({ handleUpdate, radiosArray }) => {
-  const [radios, setRadios] = useState(radiosArray);
-
-  const handleOnToggle = (index) => () => {
-    const radiosState = radios.map((radio, i) => {
-      return index === i ? { ...radio, active: true } : { ...radio, active: false };
-    });
-    setRadios(radiosState);
-    handleUpdate(index);
-  };
-
+const RadioImageSlider = ({ handleUpdate, images }) => {
   return (
     <Wrapper>
-      {radios.map((radio, index) => (
-        <div key={`${radio.id}-${Math.random()}`}>
-          <Radio active={radio.active} key={radio.id} onClick={handleOnToggle(index)}>
-            <Fill style={{ backgroundColor: radio.color }} />
+      {images.map((image, index) => (
+        <div key={`${image.id}-${Math.random()}`}>
+          <Radio active={image.active} key={image.id} onClick={handleUpdate(index)}>
+            <Fill style={{ backgroundColor: image.color }} />
           </Radio>
-          <Label>{radio.label}</Label>
+          <Label>{image.label}</Label>
         </div>
       ))}
     </Wrapper>
@@ -63,7 +62,7 @@ const RadioImageSlider = ({ handleUpdate, radiosArray }) => {
 
 RadioImageSlider.propTypes = {
   handleUpdate: func.isRequired,
-  radiosArray: array.isRequired,
+  images: array.isRequired,
 };
 
 export default RadioImageSlider;
