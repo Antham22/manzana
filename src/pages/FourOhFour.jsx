@@ -2,9 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { HomeWrapper, Navbar } from '../components';
+import { HomeWrapper } from '../components';
 
-import { BACKGROUND_GREY, CONTAINER_HEIGHT, LIGHT_BLUE } from '../constants/styles';
+import { LIGHT_BLUE } from '../constants/styles';
 
 const Message = styled.div`
   position: absolute;

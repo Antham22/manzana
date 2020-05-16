@@ -14,37 +14,24 @@ export const NAV_HEIGHT = "100px";
 export const NAV_BRAND_WIDTH = "40px";
 
 // Pages and misc
-export const BACKGROUND_BLUE = "transparent linear-gradient(180deg, #5ac8fa -25%, #ffffff00 76%) 0% 0% no-repeat padding-box"
+export const BACKGROUND_BLUE = "transparent linear-gradient(180deg, #5ac8fa -25%, #ffffff00 85%) 0% 0% no-repeat padding-box"
 export const BACKGROUND_GREY = "transparent linear-gradient(90deg, #f2f2f2 0%, #ffffff00 100%) 0% 0% no-repeat padding-box";
 export const CONTAINER_HEIGHT = `(${NAV_HEIGHT} - 7px)`;
 export const PAGE_LOGO_WIDTH = "295px";
 export const PAGE_SIDEBAR_WIDTH = "100px";
-export const APPLE_LOGO_IPHONE = {
-    position: 'absolute',
-    top: '23%',
-    right: '32%',
-    zIndex: -1,
-    opacity: 0.3,
-    width: '165px',
-  };
-
-export const APPLE_LOGO_WATCH = {
-    ...APPLE_LOGO_IPHONE,
-    top: '19%',
-    right: '11%',
-}
 
 // animations
-export const easeInDefault = '1.6s ease-in 0s 1';
-export const easeInSec = '1s ease-in 0s 1'
+export const easeInDefault = '1.5s ease-in 0s 1';
 
-export const slideUpHomeIntroText = keyframes`
-    0% {
-        top: 83%
+export const homeIntroText = keyframes`
+   from {
+        transform: scale(1.3) translateY(150px);
+        opacity: 0;
     }
 
-    100% {
-        top: 51%
+    to {
+        transform: scale(1) translateY(0);
+        opacity: 1;
     }
 `;
 
@@ -59,50 +46,44 @@ export const fadeIn = keyframes`
     }
 `;
 
-export const scaleDown = keyframes`
-    0% {
-        transform: scale3d(2, 2,2);
+export const fadeOut = keyframes`
+    from  {
+        opacity: 1;
+    }
 
-    100% {
-        transform: scale3d(1);   
+    to {
+        opacity: 0;
+
     }
 `;
     
 export const scaleUp = keyframes`
-    0% {
-        transform: scale(1.5);
+    from {
+        transform: scale(0.5);
 
-    100% {
+    to {
         transform: scale(1);
     }
 `;
 
 export const slideDown = keyframes`
-    0% {
+  from {
         transform: translateY(-100%);
     }
 
-    100% {
+    to {
         transform: translateY(0);
     }
 `;
 
 export const slideInHomeIntro = keyframes`
-    0% {
+    from {
         margin: 0;
+        transform: translateY(-100px);
     }
 
-    100% {
-        margin: 107px 100px 0 ;
+    to {
+        margin: 0 ${PAGE_SIDEBAR_WIDTH};
+        transform: translateY(0);
     }`
 ;
-
-export const slideUp = keyframes`
-    0% {
-        transform: translateY(300%);
-    }
-
-    100% {
-        transform: translateY(0);
-    }
-`;

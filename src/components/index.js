@@ -8,6 +8,7 @@ import HomeIntro from './HomeIntro';
 import HomeMain from './HomeMain';
 import HomeWrapper from './HomeWrapper'
 import ImageSlider from './ImageSlider';
+import IntroNavbar from './IntroNavbar'
 import Navbar from './Navbar';
 import PageSlider from './PageSlider'
 import PrimaryButton from './PrimaryButton';
@@ -25,6 +26,7 @@ export {
     HomeMain, 
     HomeWrapper,
     ImageSlider,
+    IntroNavbar,
     Navbar,
     PageSlider,
     PrimaryButton,
