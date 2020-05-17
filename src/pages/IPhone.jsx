@@ -16,7 +16,7 @@ const Image = styled.img`
 
 const ImageContainer = styled.div`
   position: absolute;
-  height: 100%;
+  height: 115%;
   width: 100%;
 `;
 

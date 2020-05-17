@@ -2,13 +2,11 @@ import React from 'react';
 import { array, func } from 'prop-types';
 import styled from 'styled-components';
 
+import useSliderPosition from '../utils/hooks/useSliderPosition';
 import { RED } from '../constants/styles';
 
 const Wrapper = styled.div`
   flex: 2;
-  div:first-child {
-    display: inline-block;
-  }
 `;
 
 const Image = styled.img`
@@ -17,23 +15,28 @@ const Image = styled.img`
   cursor: pointer;
 `;
 
-const ToggleContainer = styled.div`
-  margin-top: 25px;
-  text-align: center;
+const SliderContainer = styled.div`
+  position: relative;
+  margin: 25px 40px 0;
+  height: 10px;
+  width: 200px;
+  background-color: #f2f2f2;
 `;
 
-const ToggleSwitch = styled.span`
-  display: inline-block;
+const Slider = styled.div`
+  position: absolute;
   height: 10px;
   width: 100px;
-  background-color: ${({ active }) => (active ? RED : '#f2f2f2')};
+  background-color: ${RED};
   cursor: pointer;
 `;
 
 const ImageSlider = ({ handleUpdate, images }) => {
+  const { handleMoveSlider, position: positionLeft } = useSliderPosition();
+
   return (
     <Wrapper>
-      <div>
+      <div style={{ display: 'inline-block', textAlign: 'center' }}>
         {images.map((image, index) => {
           return (
             <Image
@@ -45,13 +48,9 @@ const ImageSlider = ({ handleUpdate, images }) => {
             />
           );
         })}
-        <ToggleContainer>
-          {images.map((image, index) => {
-            return (
-              <ToggleSwitch key={image.id} active={image.active} onClick={handleUpdate(index)} />
-            );
-          })}
-        </ToggleContainer>
+        <SliderContainer>
+          <Slider onMouseDown={handleMoveSlider} style={{ left: `${positionLeft}px` }} />
+        </SliderContainer>
       </div>
     </Wrapper>
   );
