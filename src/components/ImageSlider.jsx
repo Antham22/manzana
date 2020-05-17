@@ -37,10 +37,10 @@ const ImageSlider = ({ handleUpdate, images }) => {
   const getImageOpacity = (index, num) => {
     const range = 70;
     const buffer = 30;
-    const percent = range * (num * 0.01);
-    const opacity = 0.01 * (index === 0 ? percent - 100 : percent + buffer);
+    const percent = 0.01 * (index === 0 ? 100 - num : num);
+    const opacity = 0.01 * (range * percent + buffer);
 
-    return Math.abs(opacity);
+    return opacity;
   };
 
   return (
