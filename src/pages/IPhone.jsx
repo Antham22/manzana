@@ -49,7 +49,7 @@ const IPhone = () => {
         ]}
       >
         <ImageContainer>
-          <OffestContainer>
+          {/* <OffestContainer>
             {images.map((image) => (
               <Image
                 alt="hero image"
@@ -58,7 +58,7 @@ const IPhone = () => {
                 style={{ opacity: image.active ? 1 : 0 }}
               />
             ))}
-          </OffestContainer>
+          </OffestContainer> */}
         </ImageContainer>
       </Hero>
       <Bottom>

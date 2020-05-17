@@ -34,6 +34,15 @@ const Slider = styled.div`
 const ImageSlider = ({ handleUpdate, images }) => {
   const { handleMoveSlider, position: positionLeft } = useSliderPosition();
 
+  const getImageOpacity = (index, num) => {
+    const range = 70;
+    const buffer = 30;
+    const percent = range * (num * 0.01);
+    const opacity = 0.01 * (index === 0 ? percent - 100 : percent + buffer);
+
+    return Math.abs(opacity);
+  };
+
   return (
     <Wrapper>
       <div style={{ display: 'inline-block', textAlign: 'center' }}>
@@ -44,7 +53,7 @@ const ImageSlider = ({ handleUpdate, images }) => {
               onClick={handleUpdate(index)}
               src={image.path}
               alt={image.alt}
-              style={{ opacity: image.active ? 1 : 0.5 }}
+              style={{ opacity: getImageOpacity(index, positionLeft) }}
             />
           );
         })}
