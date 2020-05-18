@@ -2,7 +2,6 @@ import React from 'react';
 import { array, func } from 'prop-types';
 import styled from 'styled-components';
 
-import useSliderPosition from '../utils/hooks/useSliderPosition';
 import { RED } from '../constants/styles';
 
 const Wrapper = styled.div`
@@ -31,18 +30,7 @@ const Slider = styled.div`
   cursor: pointer;
 `;
 
-const ImageSlider = ({ handleUpdate, images }) => {
-  const { handleMoveSlider, position: positionLeft } = useSliderPosition();
-
-  const getImageOpacity = (index, num) => {
-    const range = 70;
-    const buffer = 30;
-    const percent = 0.01 * (index === 0 ? 100 - num : num);
-    const opacity = 0.01 * (range * percent + buffer);
-
-    return opacity;
-  };
-
+const ImageSlider = ({ getImageOpacity, handleImageClick, handleMoveSlider, images, position }) => {
   return (
     <Wrapper>
       <div style={{ display: 'inline-block', textAlign: 'center' }}>
@@ -50,15 +38,15 @@ const ImageSlider = ({ handleUpdate, images }) => {
           return (
             <Image
               key={image.id}
-              onClick={handleUpdate(index)}
+              onClick={handleImageClick(index)}
               src={image.path}
               alt={image.alt}
-              style={{ opacity: getImageOpacity(index, positionLeft) }}
+              style={{ opacity: getImageOpacity(index) }}
             />
           );
         })}
         <SliderContainer>
-          <Slider onMouseDown={handleMoveSlider} style={{ left: `${positionLeft}px` }} />
+          <Slider onMouseDown={handleMoveSlider} style={{ left: `${position}px` }} />
         </SliderContainer>
       </div>
     </Wrapper>
@@ -66,7 +54,9 @@ const ImageSlider = ({ handleUpdate, images }) => {
 };
 
 ImageSlider.propTypes = {
-  handleUpdate: func.isRequired,
+  getImageOpacity: func.isRequired,
+  handleImageClick: func.isRequired,
+  handleMoveSlider: func.isRequired,
   images: array.isRequired,
 };
 

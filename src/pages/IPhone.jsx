@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
+import useImageSlider from '../utils/hooks/useImageSlider';
 import { BuyNow, Hero, ImageSlider, Section } from '../components';
 import { IPHONE_IMAGES } from '../constants/common';
 
@@ -11,7 +12,7 @@ const Bottom = styled.div`
 
 const Image = styled.img`
   position: absolute;
-  height: 100%;
+  height: 95%;
 `;
 
 const ImageContainer = styled.div`
@@ -29,14 +30,13 @@ const OffestContainer = styled.div`
 `;
 
 const IPhone = () => {
-  const [images, setImages] = useState(IPHONE_IMAGES);
-
-  const handleOnToggle = (index) => () => {
-    const imagesState = images.map((image, i) => {
-      return index === i ? { ...image, active: true } : { ...image, active: false };
-    });
-    setImages(imagesState);
-  };
+  const {
+    getHeroStyles,
+    getImageOpacity,
+    handleImageClick,
+    handleMoveSlider,
+    position,
+  } = useImageSlider();
 
   return (
     <Section>
@@ -49,21 +49,25 @@ const IPhone = () => {
         ]}
       >
         <ImageContainer>
-          {/* <OffestContainer>
-            {images.map((image) => (
-              <Image
-                alt="hero image"
-                key={image.id}
-                src={image.hero}
-                style={{ opacity: image.active ? 1 : 0 }}
-              />
-            ))}
-          </OffestContainer> */}
+          <OffestContainer>
+            {IPHONE_IMAGES.map((image, index) => {
+              const styles = getHeroStyles(index);
+              return (
+                <Image alt="hero image" key={image.id} src={image.hero} style={{ ...styles }} />
+              );
+            })}
+          </OffestContainer>
         </ImageContainer>
       </Hero>
       <Bottom>
         <BuyNow price="$699" />
-        <ImageSlider handleUpdate={handleOnToggle} images={images} />
+        <ImageSlider
+          getImageOpacity={getImageOpacity}
+          handleImageClick={handleImageClick}
+          handleMoveSlider={handleMoveSlider}
+          images={IPHONE_IMAGES}
+          position={position}
+        />
       </Bottom>
     </Section>
   );
