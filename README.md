@@ -45,9 +45,9 @@ password: windowsPC4eva
 
 ## TTD
 
-- Add MacBook Page
-- Add animations for page transitions
-- Responsiveness
+- MacBook Page
+- Page transitions
+- Mobile friendly
 
 ## Feedback
 
@@ -56,7 +56,3 @@ Please let me know on the
 question or comment.
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-- Special thanks to [Dental Whale](https://dentalwhale.com/) for the opportunity.
