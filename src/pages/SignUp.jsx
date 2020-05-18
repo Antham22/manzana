@@ -84,7 +84,7 @@ const SignUp = () => {
   };
 
   if (isAuthenticated) {
-    return <Redirect to="/" />;
+    return <Redirect to="/intro" />;
   }
 
   return (

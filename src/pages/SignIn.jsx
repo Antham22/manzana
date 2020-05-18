@@ -99,7 +99,7 @@ const SignIn = () => {
   };
 
   if (isAuthenticated) {
-    return <Redirect to="/" />;
+    return <Redirect to="/intro" />;
   }
 
   return (
