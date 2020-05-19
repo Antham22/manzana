@@ -13,12 +13,14 @@ const Button = styled.button`
   color: ${WHITE};
   font-size: 14px;
   font-weight: bold;
+  cursor: not-allowed;
+  cursor: ${({ buttonStyle }) => buttonStyle.cursor};
 `;
 
 const PrimaryButton = ({ text, state }) => {
   const [buttonState, setButtonState] = useState({
     text,
-    style: { color: BLACK, opacity: 1 },
+    style: { color: BLACK, opacity: 1, cursor: 'pointer' },
     disabled: false,
   });
   useEffect(() => {
