@@ -3,8 +3,8 @@ import { Link, Redirect } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { AuthContext } from '../context/AuthContext';
-import { Card, FormInput, PrimaryButton } from '../components';
-import { BACKGROUND_BLUE, LIGHT_BLUE } from '../constants/styles';
+import { Card, FormInput, PageWrapper, PrimaryButton } from '../components';
+import { BACKGROUND_BLUE, LIGHT_BLUE, slideInRight, slideOutRight } from '../constants/styles';
 import { ERROR_INVALID_EMAIL, ERROR_INVALID_PASSWORD, ERROR_UNEXPECTED } from '../constants/errors';
 import { getFormData, validEmailRegex, validateForm } from '../utils';
 import fakeAuth from '../fakeAuth';
@@ -40,13 +40,20 @@ const SignUpLink = styled.div`
   }
 `;
 
-const Wrapper = styled.section`
+const Wrapper = styled(PageWrapper)`
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   background: ${BACKGROUND_BLUE};
   height: 100%;
+
+  &.page-enter {
+    animation: ${slideInRight} 0.5s forwards;
+  }
+  &.page-exit {
+    animation: ${slideOutRight} 0.5s forwards;
+  }
 `;
 
 const SignIn = () => {
@@ -56,6 +63,7 @@ const SignIn = () => {
     password: '',
     submission: '',
   });
+  const [formState, setFormState] = useState({ status: null, disabled: false });
 
   const handleOnChange = (event) => {
     event.preventDefault();
@@ -79,6 +87,7 @@ const SignIn = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setFormState({ ...{ status: 'sign-in', disabled: true } });
     const data = getFormData(event.target.elements);
     const valid = validateForm(errors);
 
@@ -86,8 +95,12 @@ const SignIn = () => {
       try {
         const user = await fakeAuth(data);
         if (user.valid) {
-          handleSignin(user.name);
+          setTimeout(() => {
+            setFormState({ ...{ status: 'success', disabled: true } });
+            setTimeout(() => handleSignin(user.name), 1500);
+          }, 3000);
         } else {
+          setFormState({ status: null, disabled: false });
           throw user.error;
         }
       } catch (e) {
@@ -109,6 +122,7 @@ const SignIn = () => {
           <h1>Sign-In</h1>
           <form onSubmit={handleSubmit}>
             <FormInput
+              disabled={formState.disabled}
               error={errors.email}
               label="Email"
               name="email"
@@ -118,6 +132,7 @@ const SignIn = () => {
               type="email"
             />
             <FormInput
+              disabled={formState.disabled}
               error={errors.password}
               label="Password"
               name="password"
@@ -127,7 +142,7 @@ const SignIn = () => {
               type="password"
             />
             <FormSubmit>
-              <PrimaryButton text="Sign-In" />
+              <PrimaryButton state={formState.status} text="Sign-In" />
               <Error>{errors.submission}</Error>
             </FormSubmit>
           </form>

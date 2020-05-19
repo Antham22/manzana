@@ -9,6 +9,7 @@ import ImageSlider from './ImageSlider';
 import IntroNavbar from './IntroNavbar'
 import Navbar from './Navbar';
 import PageSlider from './PageSlider'
+import PageWrapper from './PageWrapper';
 import PrimaryButton from './PrimaryButton';
 import RadioImageSlider from './RadioImageSlider';
 import Section from './Section';
@@ -25,6 +26,7 @@ export {
     IntroNavbar,
     Navbar,
     PageSlider,
+    PageWrapper,
     PrimaryButton,
     RadioImageSlider,
     Section 

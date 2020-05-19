@@ -3,8 +3,8 @@ import { Link, Redirect } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { AuthContext } from '../context/AuthContext';
-import { Card, FormInput, PrimaryButton } from '../components';
-import { BACKGROUND_BLUE, LIGHT_BLUE } from '../constants/styles';
+import { Card, FormInput, PageWrapper, PrimaryButton } from '../components';
+import { BACKGROUND_BLUE, LIGHT_BLUE, slideInLeft, slideOutLeft } from '../constants/styles';
 import {
   ERROR_INVALID_EMAIL,
   ERROR_INVALID_NAME,
@@ -33,13 +33,20 @@ const SignInLink = styled.div`
   }
 `;
 
-const Wrapper = styled.section`
+const Wrapper = styled(PageWrapper)`
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   background: ${BACKGROUND_BLUE};
   height: 100%;
+
+  &.page-enter {
+    animation: ${slideInLeft} 0.5s forwards;
+  }
+  &.page-exit {
+    animation: ${slideOutLeft} 0.5s forwards;
+  }
 `;
 
 const SignUp = () => {
@@ -49,6 +56,7 @@ const SignUp = () => {
     email: '',
     password: '',
   });
+  const [formState, setFormState] = useState({ status: null, disabled: false });
 
   const handleOnChange = (event) => {
     event.preventDefault();
@@ -75,11 +83,15 @@ const SignUp = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setFormState({ ...{ status: 'sign-up', disabled: true } });
     const data = getFormData(event.target.elements);
     const valid = validateForm(errors);
 
     if (valid) {
-      handleSignin(data.full_name);
+      setTimeout(() => {
+        setFormState({ ...{ status: 'success', disabled: true } });
+        setTimeout(() => handleSignin(data.full_name), 1500);
+      }, 3000);
     }
   };
 
@@ -94,6 +106,7 @@ const SignUp = () => {
           <h1>Sign-Up</h1>
           <form onSubmit={handleSubmit}>
             <FormInput
+              disabled={formState.disabled}
               error={errors.full_name}
               label="Full Name"
               name="full_name"
@@ -103,6 +116,7 @@ const SignUp = () => {
               type="text"
             />
             <FormInput
+              disabled={formState.disabled}
               error={errors.email}
               label="Email"
               name="email"
@@ -112,6 +126,7 @@ const SignUp = () => {
               type="email"
             />
             <FormInput
+              disabled={formState.disabled}
               error={errors.password}
               label="Password"
               name="password"
@@ -121,7 +136,7 @@ const SignUp = () => {
               type="password"
             />
             <FormSubmit>
-              <PrimaryButton text="Sign-Up" />
+              <PrimaryButton state={formState.status} text="Sign-Up" />
             </FormSubmit>
           </form>
         </SignUpForm>
