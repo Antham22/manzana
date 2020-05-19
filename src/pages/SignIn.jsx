@@ -46,7 +46,6 @@ const Wrapper = styled(PageWrapper)`
   align-items: center;
   flex-direction: column;
   background: ${BACKGROUND_BLUE};
-  height: 100%;
 
   &.page-enter {
     animation: ${slideInRight} 0.5s forwards;

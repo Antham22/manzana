@@ -24,18 +24,6 @@ export const PAGE_SIDEBAR_WIDTH = "100px";
 export const easeInDefault = '1.5s ease-in 0s 1';
 export const linkTransitionTime ='0.3s ease-in-out'
 
-export const homeIntroText = keyframes`
-   from {
-        transform: scale(1.3) translateY(150px);
-        opacity: 0;
-    }
-
-    to {
-        transform: scale(1) translateY(0);
-        opacity: 1;
-    }
-`;
-
 export const fadeIn = keyframes`
     0% {
         opacity: 0;
@@ -43,19 +31,19 @@ export const fadeIn = keyframes`
 
     100% {
         opacity: 1;
+        visibility: visible;
 
     }
 `;
 
 export const fadeOut = keyframes`
     from  {
-        visibility: visible;
         opacity: 1;
     }
 
     to {
-        visibility: hidden;
         opacity: 0;
+        visibility: hidden;
 
     }
 `;
@@ -79,28 +67,26 @@ export const slideDown = keyframes`
     }
 `;
 
-export const slideInHomeIntro = keyframes`
-    from {
-        margin: 0;
-        transform: translateY(-100px);
-    }
+export const slideInUp= keyframes`
+  from {
+    transform: translateY(100%);
+    visibility: visible;
+  }
 
-    to {
-        margin: 0 ${PAGE_SIDEBAR_WIDTH};
-        transform: translateY(0);
-    }`
-;
+  to {
+    transform: translateY(0);
+  }
+`;
 
-export const slideDownHomeWelcome = keyframes`
-    from {
-        transform: translate(-50%, -100%);
-        opacity: 0;
-    }
+export const slideOutUp= keyframes`
+  from {
+    transform: translateY(0);
+  }
 
-    to {
-        transform: translate(-50%, -50%);
-        opacity: 1;
-    }
+  to {
+    transform: translateY(-100%);
+    visibility: hidden;
+  }
 `;
 
 export const slideInLeft = keyframes`
@@ -113,6 +99,7 @@ export const slideInLeft = keyframes`
     transform: translate3d(0, 0, 0);
   }
 `;
+
 export const slideOutLeft = keyframes`
   from {
     transform: translate3d(0, 0, 0);
@@ -144,28 +131,4 @@ export const slideOutRight = keyframes`
     visibility: hidden;
     transform: translate3d(100%, 0, 0);
   }
-`;
-
-export const slideUpHomeProductsLink = keyframes`
-    from {
-        transform: translate(-50%, 150%);
-        opacity: 0;
-    }
-
-    to {
-        transform: translate(-50%, -50%);
-        opacity: 1;
-    }
-`;
-
-export const scaleDownHomePageSlider = keyframes`
-    from {
-        transform: scale(2);
-        opacity: 0;
-    }
-
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
 `;

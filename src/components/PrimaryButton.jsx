@@ -24,7 +24,7 @@ const PrimaryButton = ({ text, state }) => {
   useEffect(() => {
     const stateProps = getButtonState(text, state);
     setButtonState(stateProps);
-  }, [state]);
+  }, [state, setButtonState, text]);
 
   return (
     <Button disabled={buttonState.disabled} buttonStyle={buttonState.style}>

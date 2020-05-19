@@ -4,15 +4,13 @@ import styled from 'styled-components';
 import Odometer from 'react-odometerjs';
 import 'odometer/themes/odometer-theme-minimal.css';
 
-import { IntroNavbar } from '../components';
+import { IntroNavbar, PageWrapper } from '../components';
 import {
   BACKGROUND_BLUE,
   NAV_HEIGHT,
   PAGE_SIDEBAR_WIDTH,
   easeInDefault,
   fadeIn,
-  homeIntroText,
-  slideInHomeIntro,
   scaleUp,
 } from '../constants/styles';
 
@@ -23,6 +21,11 @@ const Content = styled.div`
   transform: translate(-50%, -50%);
 `;
 
+const ContentWrapper = styled.div`
+  height: calc(100% - ${NAV_HEIGHT});
+  cursor: pointer;
+`;
+
 const Footer = styled.div`
   text-align: center;
 `;
@@ -31,7 +34,19 @@ const Header = styled.div`
   background: ${BACKGROUND_BLUE};
   height: 75%;
   margin: 0 ${PAGE_SIDEBAR_WIDTH};
-  animation: ${easeInDefault} ${slideInHomeIntro};
+  animation: slideInContainer ${easeInDefault};
+
+  @keyframes slideInContainer {
+    from {
+      margin: 0;
+      transform: translateY(-100px);
+    }
+
+    to {
+      margin: 0 ${PAGE_SIDEBAR_WIDTH};
+      transform: translateY(0);
+    }
+  }
 `;
 
 const Image = styled.img`
@@ -53,12 +68,19 @@ const Message = styled.h1`
   text-align: center;
   font-size: 20px;
   font-weight: 500;
-  animation: ${homeIntroText} ${easeInDefault};
-`;
+  animation: slideInIntroText ${easeInDefault};
 
-const Wrapper = styled.div`
-  height: calc(100% - ${NAV_HEIGHT});
-  cursor: pointer;
+  @keyframes slideInIntroText {
+    from {
+      transform: scale(1.3) translateY(150px);
+      opacity: 0;
+    }
+
+    to {
+      transform: scale(1) translateY(0);
+      opacity: 1;
+    }
+  }
 `;
 
 const Intro = () => {
@@ -76,9 +98,9 @@ const Intro = () => {
   }
 
   return (
-    <>
+    <PageWrapper>
       <IntroNavbar />
-      <Wrapper onClick={handleToggleHome}>
+      <ContentWrapper onClick={handleToggleHome}>
         <Header>
           <Content>
             <Image src="/images/apple_background_white.svg" />
@@ -92,8 +114,8 @@ const Intro = () => {
             <Odometer value={counter} format="dddd" duration={1600} />
           </IntroCounter>
         </Footer>
-      </Wrapper>
-    </>
+      </ContentWrapper>
+    </PageWrapper>
   );
 };
 

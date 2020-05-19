@@ -15,7 +15,7 @@ import {
 } from '../constants/styles';
 import { NAV_LINKS } from '../constants/common';
 
-export const fadeOutTime = '1s ease-out 0s 1';
+export const fadeOutTime = '1s ease-out';
 
 const Nav = styled.div`
   position: relative;

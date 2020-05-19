@@ -1,12 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import {
-  BACKGROUND_GREY,
-  PAGE_SIDEBAR_WIDTH,
-  slideInHomeIntro,
-  easeInDefault,
-} from '../constants/styles';
+import { BACKGROUND_GREY, PAGE_SIDEBAR_WIDTH } from '../constants/styles';
 
 const Header = styled.header`
   position: relative;
@@ -37,9 +32,6 @@ const Footer = styled.div`
 const Wrapper = styled.section`
   height: calc(100% - 100px);
   margin: 0 ${PAGE_SIDEBAR_WIDTH};
-  &.home-intro-enter {
-    animation: ${slideInHomeIntro} ${easeInDefault};
-  }
 `;
 
 const HomeWrapper = ({ background = BACKGROUND_GREY, children, customStyle, handleOnClick }) => {

@@ -50,8 +50,9 @@ const useImageSlider = () => {
   const getHeroStyles = (index) => {
     const opacity = index === 0 ? 0.01 * (100 - position) : 0.01 * position;
     const translate = index === 0 ? position * 2 : (100 - position) * 2;
+    const visibility = opacity === 1 ? 'inline' : 'none';
 
-    return { opacity, transform: `translateX(${translate}px)` };
+    return { opacity, transform: `translateX(${translate}px)`, visibility };
   };
 
   const getImageOpacity = (index) => {
