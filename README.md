@@ -46,7 +46,7 @@ password: windowsPC4eva
 ## TTD
 
 - MacBook Page
-- Page transitions
+- ~~Page transitions~~
 - Mobile friendly
 
 ## Feedback
