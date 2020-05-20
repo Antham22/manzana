@@ -28,6 +28,7 @@ const Slider = styled.div`
   width: 100px;
   background-color: ${RED};
   cursor: pointer;
+  transition: all 0s ease-in 0s;
 `;
 
 const ImageSlider = ({ getImageOpacity, handleImageClick, handleMoveSlider, images, position }) => {
