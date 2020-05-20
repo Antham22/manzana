@@ -21,7 +21,7 @@ animation: slideInLeft 1s ease-in;
 
 const Bottom = styled.div`
   display: flex;
-  padding: 50px 0;
+  padding: 2% 0;
   animation: slideUpIn 1s ease-in;
 
   @keyframes slideUpIn {
@@ -80,11 +80,9 @@ const Watch = () => {
           animation={heroAnimation}
           title="Apple Watch"
           heading={['Change starts', 'within']}
-          message={[
-            'Apple Watch Series 4. Fundametally redesigned and',
-            're-engineered to help you be even more active,',
-            'healthy, and connected.',
-          ]}
+          message={
+            'Apple Watch Series 4. Fundametally redesigned and re-engineered to help you be even more active, healthy, and connected.'
+          }
         >
           <ImageContainer>
             {images.map((image) => (

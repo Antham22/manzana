@@ -15,7 +15,7 @@ const Heading = styled.h1`
 const Left = styled.div`
   flex: 1;
   background: ${BACKGROUND_GREY};
-  padding: 84px 0 84px 76px;
+  padding: 3% 0 3% 4%;
 `;
 
 const Message = styled.div`
@@ -26,7 +26,7 @@ const Message = styled.div`
 const Right = styled.div`
   flex: 1;
   position: relative;
-  padding-top: 115px;
+  padding-top: 3%;
 `;
 
 const Title = styled.div`
@@ -63,7 +63,7 @@ const Hero = ({ animation, children, heading, message, title }) => {
       <Left>
         <Title>{title}</Title>
         <Heading>{widowKilla(heading)}</Heading>
-        <Message>{widowKilla(message)}</Message>
+        <Message>{message}</Message>
       </Left>
       <Right>{children}</Right>
     </Wrapper>
@@ -74,7 +74,7 @@ Hero.propTypes = {
   animation: node,
   children: element,
   heading: array,
-  message: array,
+  message: string,
   title: string,
 };
 

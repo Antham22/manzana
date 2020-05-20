@@ -9,7 +9,7 @@ import { fadeOut, slideInUp } from '../constants/styles';
 
 const Bottom = styled.div`
   display: flex;
-  padding: 50px 0;
+  padding: 2% 0;
 `;
 
 const Image = styled.img`
@@ -65,10 +65,9 @@ const IPhone = () => {
         <Hero
           title="iPhone"
           heading={['The ultimate', 'iPhone']}
-          message={[
-            'The future is here. Join the iPhone',
-            'Upgrade Program to get the latest iPhone - NOW!',
-          ]}
+          message={
+            'The future is here. Join the iPhone Upgrade Program to get the latest iPhone - NOW!'
+          }
         >
           <ImageContainer>
             <OffestContainer>

@@ -2,13 +2,13 @@ import { BLACK } from '../constants/styles';
 const getButtonState = (text, state) => {
     switch (state) {
       case 'success':
-        return { text: 'Success!', style: { color: 'green', opacity: 0.6 }, disabled: true, cursor: 'not-allowed' };
+        return { text: 'Success!', style: { color: 'green'}, disabled: true };
       case 'sign-up':
-        return { text: 'Singing up...', style: { color: BLACK, opacity: 0.6 }, disabled: true, cursor: 'not-allowed' };
+        return { text: 'Singing up...', style: { color: BLACK}, disabled: true };
       case 'sign-in':
-        return { text: 'Signing in...', style: { color: BLACK, opacity: 0.6 }, disabled: true, cursor: 'not-allowed' };
+        return { text: 'Signing in...', style: { color: BLACK}, disabled: true };
       default:
-        return { text, style: { color: BLACK, opacity: 1 }, disabled: false, cursor: 'pointer' };
+        return { text, style: { color: BLACK}, disabled: false };
     }
   };
 
