@@ -92,6 +92,8 @@ const SignUp = () => {
         setFormState({ ...{ status: 'success', disabled: true } });
         setTimeout(() => handleSignin(data.full_name), 1500);
       }, 3000);
+    } else {
+      setFormState({ status: null, disabled: false });
     }
   };
 

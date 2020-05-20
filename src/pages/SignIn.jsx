@@ -106,7 +106,7 @@ const SignIn = () => {
         setErrors({ ...errors, submission: e });
       }
     } else {
-      setErrors({ ...errors, submission: ERROR_UNEXPECTED });
+      setFormState({ status: null, disabled: false });
     }
   };
 
