@@ -4,7 +4,7 @@ export const AuthContext = createContext();
 
 const initialState = {
   name: '',
-  isAuthenticated: true,
+  isAuthenticated: false,
 };
 
 const reducer = (state, action) => {
