@@ -12,10 +12,12 @@ animation: slideInLeft 1s ease-in;
 @keyframes slideInLeft {
   from {
     transform: translateX(-100px);
+    opacity: 0;
   }
 
   to {
     transform: translateX(0);
+    opacity: 1;
   }
 `;
 
@@ -49,10 +51,6 @@ const ImageContainer = styled.div`
 `;
 
 const Wrapper = styled(PageWrapper)`
-  &.page-enter {
-    animation: ${fadeIn} 0.6s ease-in;
-  }
-
   &.page-exit {
     animation: ${slideOutUp} 0.6s forwards;
   }
