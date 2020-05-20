@@ -79,8 +79,8 @@ const IntroNavTransition = styled.div`
   width: 100%;
   height: 100%;
   background-color: ${BLACK};
-  visibility: hidden;
   animation: ${fadeOut} ${fadeOutTime};
+  visibility: hidden;
 `;
 
 const Navbar = () => {

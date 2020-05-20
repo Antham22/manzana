@@ -39,11 +39,12 @@ export const fadeIn = keyframes`
 export const fadeOut = keyframes`
     from  {
         opacity: 1;
+        visibility: visible;
     }
 
     to {
         opacity: 0;
-        visibility: hidden;
+        
 
     }
 `;
